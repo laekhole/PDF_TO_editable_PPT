@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "1.0",
+  "tool": {
+    "name": "pdf2editable-ppt",
+    "version": "0.1.0"
+  },
+  "source": {
+    "path": "/home/user/PDF_TO_editable_PPT/fixtures/pdf/encrypted.pdf",
+    "sha256": "94abd8e20f15f96bdd4961326c4e7a49db28ea95c62d261e05fe31958449fe3f",
+    "pages": 1
+  },
+  "output": {
+    "path": "/home/user/PDF_TO_editable_PPT/samples/encrypted.pptx",
+    "sha256": "2d91cfea91357cd8709ece10cad9894c8e6e0e00dc7f0cf1cd498fa1ed37796a"
+  },
+  "options": {
+    "mode": "fidelity",
+    "verify": true,
+    "dpi": 150.0,
+    "fallbackDpi": 220.0,
+    "vectorBudget": 900,
+    "detectTables": true,
+    "pages": "all"
+  },
+  "summary": {
+    "pages": 1,
+    "elements": 1,
+    "byOutcome": {
+      "native": 1
+    },
+    "imagesPassedThrough": 0,
+    "imagesReEncoded": 0,
+    "textIntegrity": {
+      "sourceChars": 16,
+      "outputChars": 16,
+      "identical": true,
+      "textElementsRasterised": 0,
+      "note": "counts ignore whitespace and use NFC normalisation; a difference is expected only where text was deliberately kept as a rendered region"
+    }
+  },
+  "warnings": [],
+  "assets": [],
+  "pages": [
+    {
+      "index": 0,
+      "pageNumber": 1,
+      "widthPt": 612.0,
+      "heightPt": 792.0,
+      "rotation": 0,
+      "scanned": false,
+      "degraded": false,
+      "elements": [
+        {
+          "id": "p1-txt1",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 1,
+          "sourcePaintOrder": 1,
+          "bboxPt": [
+            72.0,
+            694.24,
+            203.58,
+            715.84
+          ],
+          "textChars": 17,
+          "lines": 1
+        }
+      ],
+      "verification": {
+        "pass": true,
+        "detail": "within tolerance",
+        "metrics": {
+          "ink_missing": 0.0,
+          "ink_added": 0.0,
+          "edge_iou": 0.97494,
+          "mean_delta": 15.60429,
+          "source_ink_ratio": 0.00274,
+          "width": 1275.0,
+          "height": 1651.0
+        },
+        "dpi": 150.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "schemaVersion": "1.0",
+  "tool": {
+    "name": "pdf2editable-ppt",
+    "version": "0.1.0"
+  },
+  "source": {
+    "path": "/home/user/PDF_TO_editable_PPT/fixtures/pdf/table_lattice.pdf",
+    "sha256": "8b68be06fa8638d84015a8bc1ca18809e16d1c1fc8951a4702f44eb05860f409",
+    "pages": 1
+  },
+  "output": {
+    "path": "/home/user/PDF_TO_editable_PPT/samples/table_lattice.pptx",
+    "sha256": "15de9e20ff511d988648413cdee1e8d8857002b17f6e45097c02cdae723dc35b"
+  },
+  "options": {
+    "mode": "fidelity",
+    "verify": true,
+    "dpi": 150.0,
+    "fallbackDpi": 220.0,
+    "vectorBudget": 900,
+    "detectTables": true,
+    "pages": "all"
+  },
+  "summary": {
+    "pages": 1,
+    "elements": 2,
+    "byOutcome": {
+      "native": 2
+    },
+    "imagesPassedThrough": 0,
+    "imagesReEncoded": 0,
+    "textIntegrity": {
+      "sourceChars": 86,
+      "outputChars": 86,
+      "identical": true,
+      "textElementsRasterised": 15,
+      "note": "counts ignore whitespace and use NFC normalisation; a difference is expected only where text was deliberately kept as a rendered region"
+    }
+  },
+  "warnings": [],
+  "assets": [],
+  "pages": [
+    {
+      "index": 0,
+      "pageNumber": 1,
+      "widthPt": 612.0,
+      "heightPt": 792.0,
+      "rotation": 0,
+      "scanned": false,
+      "degraded": false,
+      "elements": [
+        {
+          "id": "p1-txt59",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 1,
+          "sourcePaintOrder": 1,
+          "bboxPt": [
+            56.0,
+            734.96,
+            184.38,
+            753.86
+          ],
+          "textChars": 17,
+          "lines": 1
+        },
+        {
+          "id": "p1-tbl1",
+          "type": "table",
+          "outcome": "native",
+          "confidence": 0.95,
+          "zIndex": 29,
+          "sourcePaintOrder": 29,
+          "bboxPt": [
+            56.0,
+            576.0,
+            476.0,
+            700.0
+          ],
+          "notes": [
+            "lattice table: 5 x 4, 95% of cell edges backed by drawn rules"
+          ],
+          "table": {
+            "rows": 5,
+            "cols": 4,
+            "mergedCells": 2
+          }
+        }
+      ],
+      "verification": {
+        "pass": true,
+        "detail": "within tolerance",
+        "metrics": {
+          "ink_missing": 0.00091,
+          "ink_added": 0.00111,
+          "edge_iou": 0.85735,
+          "mean_delta": 4.68044,
+          "source_ink_ratio": 0.07914,
+          "width": 1275.0,
+          "height": 1651.0
+        },
+        "dpi": 150.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,379 @@
+{
+  "schemaVersion": "1.0",
+  "tool": {
+    "name": "pdf2editable-ppt",
+    "version": "0.1.0"
+  },
+  "source": {
+    "path": "/home/user/PDF_TO_editable_PPT/fixtures/pdf/shapes.pdf",
+    "sha256": "5f74501f55003d70242efc8d40278654402e5bd9cd06f1918fd2add2594ec892",
+    "pages": 1
+  },
+  "output": {
+    "path": "/home/user/PDF_TO_editable_PPT/samples/shapes.pptx",
+    "sha256": "ab1b9596913037bda85f952afe5ebb33421949b0559ec16d1f92cdef72e5637e"
+  },
+  "options": {
+    "mode": "fidelity",
+    "verify": true,
+    "dpi": 150.0,
+    "fallbackDpi": 220.0,
+    "vectorBudget": 900,
+    "detectTables": true,
+    "pages": "all"
+  },
+  "summary": {
+    "pages": 1,
+    "elements": 18,
+    "byOutcome": {
+      "native": 18
+    },
+    "imagesPassedThrough": 0,
+    "imagesReEncoded": 0,
+    "textIntegrity": {
+      "sourceChars": 11,
+      "outputChars": 11,
+      "identical": true,
+      "textElementsRasterised": 0,
+      "note": "counts ignore whitespace and use NFC normalisation; a difference is expected only where text was deliberately kept as a rendered region"
+    }
+  },
+  "warnings": [],
+  "assets": [],
+  "pages": [
+    {
+      "index": 0,
+      "pageNumber": 1,
+      "widthPt": 612.0,
+      "heightPt": 792.0,
+      "rotation": 0,
+      "scanned": false,
+      "degraded": false,
+      "elements": [
+        {
+          "id": "p1-txt18",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 1,
+          "sourcePaintOrder": 1,
+          "bboxPt": [
+            56.0,
+            734.96,
+            143.92,
+            753.86
+          ],
+          "textChars": 12,
+          "lines": 1
+        },
+        {
+          "id": "p1-shp1",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 13,
+          "sourcePaintOrder": 13,
+          "bboxPt": [
+            56.0,
+            700.0,
+            200.0,
+            700.0
+          ],
+          "notes": [
+            "two-point open stroke"
+          ]
+        },
+        {
+          "id": "p1-shp2",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 14,
+          "sourcePaintOrder": 14,
+          "bboxPt": [
+            220.0,
+            690.0,
+            340.0,
+            715.0
+          ],
+          "notes": [
+            "two-point open stroke"
+          ]
+        },
+        {
+          "id": "p1-shp3",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 15,
+          "sourcePaintOrder": 15,
+          "bboxPt": [
+            360.0,
+            690.0,
+            540.0,
+            715.0
+          ],
+          "notes": [
+            "two-point open stroke"
+          ]
+        },
+        {
+          "id": "p1-shp4",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 16,
+          "sourcePaintOrder": 16,
+          "bboxPt": [
+            56.0,
+            590.0,
+            176.0,
+            660.0
+          ],
+          "notes": [
+            "axis-aligned quad"
+          ]
+        },
+        {
+          "id": "p1-shp5",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 0.93,
+          "zIndex": 17,
+          "sourcePaintOrder": 17,
+          "bboxPt": [
+            200.0,
+            590.0,
+            320.0,
+            660.0
+          ],
+          "notes": [
+            "4 equal corner arcs"
+          ]
+        },
+        {
+          "id": "p1-shp6",
+          "type": "ellipse",
+          "outcome": "native",
+          "confidence": 0.97,
+          "zIndex": 18,
+          "sourcePaintOrder": 18,
+          "bboxPt": [
+            344.0,
+            590.0,
+            464.0,
+            660.0
+          ],
+          "notes": [
+            "4 kappa-fitted cubics"
+          ]
+        },
+        {
+          "id": "p1-shp7",
+          "type": "ellipse",
+          "outcome": "native",
+          "confidence": 0.97,
+          "zIndex": 19,
+          "sourcePaintOrder": 19,
+          "bboxPt": [
+            485.0,
+            590.0,
+            555.0,
+            660.0
+          ],
+          "notes": [
+            "4 kappa-fitted cubics"
+          ]
+        },
+        {
+          "id": "p1-shp8",
+          "type": "freeform",
+          "outcome": "native",
+          "confidence": 0.95,
+          "zIndex": 20,
+          "sourcePaintOrder": 20,
+          "bboxPt": [
+            56.0,
+            425.0,
+            190.0,
+            545.0
+          ],
+          "notes": [
+            "polygon with 5 anchors"
+          ],
+          "segments": 6,
+          "hasCurves": false
+        },
+        {
+          "id": "p1-shp9",
+          "type": "freeform",
+          "outcome": "native",
+          "confidence": 0.9,
+          "zIndex": 21,
+          "sourcePaintOrder": 21,
+          "bboxPt": [
+            230.0,
+            380.0,
+            520.0,
+            545.0
+          ],
+          "notes": [
+            "curved outline kept as Bezier custom geometry"
+          ],
+          "segments": 3,
+          "hasCurves": true
+        },
+        {
+          "id": "p1-shp10",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 22,
+          "sourcePaintOrder": 22,
+          "bboxPt": [
+            56.0,
+            280.0,
+            216.0,
+            380.0
+          ],
+          "notes": [
+            "axis-aligned quad"
+          ]
+        },
+        {
+          "id": "p1-shp11",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 23,
+          "sourcePaintOrder": 23,
+          "bboxPt": [
+            130.0,
+            320.0,
+            290.0,
+            420.0
+          ],
+          "notes": [
+            "axis-aligned quad"
+          ]
+        },
+        {
+          "id": "p1-shp12",
+          "type": "ellipse",
+          "outcome": "native",
+          "confidence": 0.97,
+          "zIndex": 24,
+          "sourcePaintOrder": 24,
+          "bboxPt": [
+            190.0,
+            270.0,
+            310.0,
+            390.0
+          ],
+          "notes": [
+            "4 kappa-fitted cubics"
+          ]
+        },
+        {
+          "id": "p1-shp13",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 25,
+          "sourcePaintOrder": 25,
+          "bboxPt": [
+            340.0,
+            300.0,
+            374.0,
+            360.0
+          ],
+          "notes": [
+            "axis-aligned quad"
+          ]
+        },
+        {
+          "id": "p1-shp14",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 26,
+          "sourcePaintOrder": 26,
+          "bboxPt": [
+            384.0,
+            300.0,
+            418.0,
+            360.0
+          ],
+          "notes": [
+            "axis-aligned quad"
+          ]
+        },
+        {
+          "id": "p1-shp15",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 27,
+          "sourcePaintOrder": 27,
+          "bboxPt": [
+            428.0,
+            300.0,
+            462.0,
+            360.0
+          ],
+          "notes": [
+            "axis-aligned quad"
+          ]
+        },
+        {
+          "id": "p1-shp16",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 28,
+          "sourcePaintOrder": 28,
+          "bboxPt": [
+            472.0,
+            300.0,
+            506.0,
+            360.0
+          ],
+          "notes": [
+            "axis-aligned quad"
+          ]
+        },
+        {
+          "id": "p1-shp17",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 29,
+          "sourcePaintOrder": 29,
+          "bboxPt": [
+            516.0,
+            300.0,
+            550.0,
+            360.0
+          ],
+          "notes": [
+            "axis-aligned quad"
+          ]
+        }
+      ],
+      "verification": {
+        "pass": true,
+        "detail": "within tolerance",
+        "metrics": {
+          "ink_missing": 0.00074,
+          "ink_added": 0.00019,
+          "edge_iou": 0.95657,
+          "mean_delta": 1.23236,
+          "source_ink_ratio": 0.1682,
+          "width": 1275.0,
+          "height": 1651.0
+        },
+        "dpi": 150.0
+      }
+    }
+  ]
+}

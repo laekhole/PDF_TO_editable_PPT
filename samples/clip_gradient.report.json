@@ -1,0 +1,178 @@
+{
+  "schemaVersion": "1.0",
+  "tool": {
+    "name": "pdf2editable-ppt",
+    "version": "0.1.0"
+  },
+  "source": {
+    "path": "/home/user/PDF_TO_editable_PPT/fixtures/pdf/clip_gradient.pdf",
+    "sha256": "eafe519c93975da4c281cd13e2ef0a1a9843450e658369c0011b37793b054cef",
+    "pages": 1
+  },
+  "output": {
+    "path": "/home/user/PDF_TO_editable_PPT/samples/clip_gradient.pptx",
+    "sha256": "af6905da98a1cc1cd6bbc003400550073d55aa87cfed26163442163572e443fe"
+  },
+  "options": {
+    "mode": "fidelity",
+    "verify": true,
+    "dpi": 150.0,
+    "fallbackDpi": 220.0,
+    "vectorBudget": 900,
+    "detectTables": true,
+    "pages": "all"
+  },
+  "summary": {
+    "pages": 1,
+    "elements": 4,
+    "byOutcome": {
+      "native": 1,
+      "raster-fallback": 3
+    },
+    "imagesPassedThrough": 0,
+    "imagesReEncoded": 3,
+    "textIntegrity": {
+      "sourceChars": 20,
+      "outputChars": 20,
+      "identical": true,
+      "textElementsRasterised": 0,
+      "note": "counts ignore whitespace and use NFC normalisation; a difference is expected only where text was deliberately kept as a rendered region"
+    }
+  },
+  "warnings": [],
+  "assets": [
+    {
+      "assetId": "fb0001",
+      "format": "png",
+      "widthPx": 495,
+      "heightPx": 495,
+      "passthrough": false,
+      "sourceSha256": "",
+      "outputSha256": "bbd0cb73375d8952baf2434d0de58bcf37206b2c98e16b0ebf0a00d4626264b2",
+      "hasAlpha": false,
+      "note": "lossless render of the source page region (fallback)"
+    },
+    {
+      "assetId": "fb0002",
+      "format": "png",
+      "widthPx": 648,
+      "heightPx": 495,
+      "passthrough": false,
+      "sourceSha256": "",
+      "outputSha256": "a3421ed0a8176cfbfa26e9a7109319e63171af0c42311e05157ceae7b2b2b979",
+      "hasAlpha": false,
+      "note": "lossless render of the source page region (fallback)"
+    },
+    {
+      "assetId": "fb0003",
+      "format": "png",
+      "widthPx": 953,
+      "heightPx": 404,
+      "passthrough": false,
+      "sourceSha256": "",
+      "outputSha256": "06fd4944d898afa5733bfbec3cdde3d736176b4c45ead340b77aca55399fdb29",
+      "hasAlpha": false,
+      "note": "lossless render of the source page region (fallback)"
+    }
+  ],
+  "pages": [
+    {
+      "index": 0,
+      "pageNumber": 1,
+      "widthPt": 612.0,
+      "heightPt": 792.0,
+      "rotation": 0,
+      "scanned": false,
+      "degraded": false,
+      "elements": [
+        {
+          "id": "p1-txt5",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 1,
+          "sourcePaintOrder": 1,
+          "bboxPt": [
+            56.0,
+            734.96,
+            207.69,
+            753.86
+          ],
+          "textChars": 22,
+          "lines": 1
+        },
+        {
+          "id": "p1-shp1",
+          "type": "rasterFallback",
+          "outcome": "raster-fallback",
+          "confidence": 0.3,
+          "zIndex": 23,
+          "sourcePaintOrder": 23,
+          "bboxPt": [
+            89.0,
+            519.0,
+            251.0,
+            681.0
+          ],
+          "assetId": "fb0001",
+          "fallbackReason": "the path is clipped; a native shape would paint outside the source's clip region",
+          "notes": [
+            "region rendered from the source PDF at 220 dpi"
+          ]
+        },
+        {
+          "id": "p1-shd4",
+          "type": "rasterFallback",
+          "outcome": "raster-fallback",
+          "confidence": 0.0,
+          "zIndex": 25,
+          "sourcePaintOrder": 25,
+          "bboxPt": [
+            329.0,
+            519.0,
+            541.0,
+            681.0
+          ],
+          "assetId": "fb0002",
+          "fallbackReason": "shading (sh): PDF shadings and tiling patterns have no faithful DrawingML equivalent, so the area is kept as a render of the source",
+          "notes": [
+            "region rendered from the source PDF at 220 dpi"
+          ]
+        },
+        {
+          "id": "p1-shp3",
+          "type": "rasterFallback",
+          "outcome": "raster-fallback",
+          "confidence": 0.3,
+          "zIndex": 26,
+          "sourcePaintOrder": 26,
+          "bboxPt": [
+            89.0,
+            329.0,
+            401.0,
+            461.0
+          ],
+          "assetId": "fb0003",
+          "fallbackReason": "the path is clipped; a native shape would paint outside the source's clip region",
+          "notes": [
+            "region rendered from the source PDF at 220 dpi"
+          ]
+        }
+      ],
+      "verification": {
+        "pass": true,
+        "detail": "within tolerance",
+        "metrics": {
+          "ink_missing": 0.0,
+          "ink_added": 0.0,
+          "edge_iou": 0.8951,
+          "mean_delta": 1.9256,
+          "source_ink_ratio": 0.15835,
+          "width": 1275.0,
+          "height": 1651.0
+        },
+        "dpi": 150.0
+      }
+    }
+  ]
+}

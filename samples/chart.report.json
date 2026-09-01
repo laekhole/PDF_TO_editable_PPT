@@ -1,0 +1,905 @@
+{
+  "schemaVersion": "1.0",
+  "tool": {
+    "name": "pdf2editable-ppt",
+    "version": "0.1.0"
+  },
+  "source": {
+    "path": "/home/user/PDF_TO_editable_PPT/fixtures/pdf/chart.pdf",
+    "sha256": "f62dca44367e399254e8cdefdeb3f3966e1f151f8c4e23563bf7309d161ffb8b",
+    "pages": 1
+  },
+  "output": {
+    "path": "/home/user/PDF_TO_editable_PPT/samples/chart.pptx",
+    "sha256": "8389407d5c02a7a4953dffdc923d607b1e3e50c4f5c2238c49b084fef5d8be82"
+  },
+  "options": {
+    "mode": "fidelity",
+    "verify": true,
+    "dpi": 150.0,
+    "fallbackDpi": 220.0,
+    "vectorBudget": 900,
+    "detectTables": true,
+    "pages": "all"
+  },
+  "summary": {
+    "pages": 1,
+    "elements": 50,
+    "byOutcome": {
+      "native": 50
+    },
+    "imagesPassedThrough": 0,
+    "imagesReEncoded": 0,
+    "textIntegrity": {
+      "sourceChars": 67,
+      "outputChars": 67,
+      "identical": true,
+      "textElementsRasterised": 0,
+      "note": "counts ignore whitespace and use NFC normalisation; a difference is expected only where text was deliberately kept as a rendered region"
+    }
+  },
+  "warnings": [],
+  "assets": [],
+  "pages": [
+    {
+      "index": 0,
+      "pageNumber": 1,
+      "widthPt": 612.0,
+      "heightPt": 792.0,
+      "rotation": 0,
+      "scanned": false,
+      "degraded": false,
+      "elements": [
+        {
+          "id": "p1-txt34",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 1,
+          "sourcePaintOrder": 1,
+          "bboxPt": [
+            56.0,
+            734.96,
+            188.2,
+            753.86
+          ],
+          "textChars": 18,
+          "lines": 1
+        },
+        {
+          "id": "p1-shp1",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 19,
+          "sourcePaintOrder": 19,
+          "bboxPt": [
+            80.0,
+            420.0,
+            80.0,
+            670.0
+          ],
+          "notes": [
+            "two-point open stroke"
+          ]
+        },
+        {
+          "id": "p1-shp2",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 20,
+          "sourcePaintOrder": 20,
+          "bboxPt": [
+            80.0,
+            420.0,
+            520.0,
+            420.0
+          ],
+          "notes": [
+            "two-point open stroke"
+          ]
+        },
+        {
+          "id": "p1-shp3",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 21,
+          "sourcePaintOrder": 21,
+          "bboxPt": [
+            80.0,
+            420.0,
+            520.0,
+            420.0
+          ],
+          "notes": [
+            "two-point open stroke"
+          ]
+        },
+        {
+          "id": "p1-shp4",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 22,
+          "sourcePaintOrder": 22,
+          "bboxPt": [
+            76.0,
+            420.0,
+            80.0,
+            420.0
+          ],
+          "notes": [
+            "two-point open stroke"
+          ]
+        },
+        {
+          "id": "p1-txt35",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 23,
+          "sourcePaintOrder": 23,
+          "bboxPt": [
+            68.55,
+            414.12,
+            73.0,
+            424.92
+          ],
+          "textChars": 1,
+          "lines": 1
+        },
+        {
+          "id": "p1-shp5",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 24,
+          "sourcePaintOrder": 24,
+          "bboxPt": [
+            80.0,
+            470.0,
+            520.0,
+            470.0
+          ],
+          "notes": [
+            "two-point open stroke"
+          ]
+        },
+        {
+          "id": "p1-shp6",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 25,
+          "sourcePaintOrder": 25,
+          "bboxPt": [
+            76.0,
+            470.0,
+            80.0,
+            470.0
+          ],
+          "notes": [
+            "two-point open stroke"
+          ]
+        },
+        {
+          "id": "p1-txt36",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 26,
+          "sourcePaintOrder": 26,
+          "bboxPt": [
+            64.1,
+            464.12,
+            73.0,
+            474.92
+          ],
+          "textChars": 2,
+          "lines": 1
+        },
+        {
+          "id": "p1-shp7",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 28,
+          "sourcePaintOrder": 28,
+          "bboxPt": [
+            80.0,
+            520.0,
+            520.0,
+            520.0
+          ],
+          "notes": [
+            "two-point open stroke"
+          ]
+        },
+        {
+          "id": "p1-shp8",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 29,
+          "sourcePaintOrder": 29,
+          "bboxPt": [
+            76.0,
+            520.0,
+            80.0,
+            520.0
+          ],
+          "notes": [
+            "two-point open stroke"
+          ]
+        },
+        {
+          "id": "p1-txt37",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 30,
+          "sourcePaintOrder": 30,
+          "bboxPt": [
+            64.1,
+            514.12,
+            73.0,
+            524.92
+          ],
+          "textChars": 2,
+          "lines": 1
+        },
+        {
+          "id": "p1-shp9",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 32,
+          "sourcePaintOrder": 32,
+          "bboxPt": [
+            80.0,
+            570.0,
+            520.0,
+            570.0
+          ],
+          "notes": [
+            "two-point open stroke"
+          ]
+        },
+        {
+          "id": "p1-shp10",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 33,
+          "sourcePaintOrder": 33,
+          "bboxPt": [
+            76.0,
+            570.0,
+            80.0,
+            570.0
+          ],
+          "notes": [
+            "two-point open stroke"
+          ]
+        },
+        {
+          "id": "p1-txt38",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 34,
+          "sourcePaintOrder": 34,
+          "bboxPt": [
+            64.1,
+            564.12,
+            73.0,
+            574.92
+          ],
+          "textChars": 2,
+          "lines": 1
+        },
+        {
+          "id": "p1-shp11",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 36,
+          "sourcePaintOrder": 36,
+          "bboxPt": [
+            80.0,
+            620.0,
+            520.0,
+            620.0
+          ],
+          "notes": [
+            "two-point open stroke"
+          ]
+        },
+        {
+          "id": "p1-shp12",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 37,
+          "sourcePaintOrder": 37,
+          "bboxPt": [
+            76.0,
+            620.0,
+            80.0,
+            620.0
+          ],
+          "notes": [
+            "two-point open stroke"
+          ]
+        },
+        {
+          "id": "p1-txt39",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 38,
+          "sourcePaintOrder": 38,
+          "bboxPt": [
+            64.1,
+            614.12,
+            73.0,
+            624.92
+          ],
+          "textChars": 2,
+          "lines": 1
+        },
+        {
+          "id": "p1-shp13",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 40,
+          "sourcePaintOrder": 40,
+          "bboxPt": [
+            80.0,
+            670.0,
+            520.0,
+            670.0
+          ],
+          "notes": [
+            "two-point open stroke"
+          ]
+        },
+        {
+          "id": "p1-shp14",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 41,
+          "sourcePaintOrder": 41,
+          "bboxPt": [
+            76.0,
+            670.0,
+            80.0,
+            670.0
+          ],
+          "notes": [
+            "two-point open stroke"
+          ]
+        },
+        {
+          "id": "p1-txt40",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 42,
+          "sourcePaintOrder": 42,
+          "bboxPt": [
+            59.66,
+            664.12,
+            73.0,
+            674.92
+          ],
+          "textChars": 3,
+          "lines": 1
+        },
+        {
+          "id": "p1-shp15",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 45,
+          "sourcePaintOrder": 45,
+          "bboxPt": [
+            92.0,
+            420.0,
+            126.38,
+            505.0
+          ],
+          "notes": [
+            "axis-aligned quad"
+          ]
+        },
+        {
+          "id": "p1-txt41",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 46,
+          "sourcePaintOrder": 46,
+          "bboxPt": [
+            102.74,
+            405.12,
+            115.64,
+            415.92
+          ],
+          "textChars": 3,
+          "lines": 1
+        },
+        {
+          "id": "p1-shp16",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 49,
+          "sourcePaintOrder": 49,
+          "bboxPt": [
+            144.0,
+            420.0,
+            178.38,
+            565.0
+          ],
+          "notes": [
+            "axis-aligned quad"
+          ]
+        },
+        {
+          "id": "p1-txt42",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 50,
+          "sourcePaintOrder": 50,
+          "bboxPt": [
+            154.3,
+            405.12,
+            168.08,
+            415.92
+          ],
+          "textChars": 3,
+          "lines": 1
+        },
+        {
+          "id": "p1-shp17",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 53,
+          "sourcePaintOrder": 53,
+          "bboxPt": [
+            196.0,
+            420.0,
+            230.38,
+            537.5
+          ],
+          "notes": [
+            "axis-aligned quad"
+          ]
+        },
+        {
+          "id": "p1-txt43",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 54,
+          "sourcePaintOrder": 54,
+          "bboxPt": [
+            206.3,
+            405.12,
+            220.08,
+            415.92
+          ],
+          "textChars": 3,
+          "lines": 1
+        },
+        {
+          "id": "p1-shp18",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 57,
+          "sourcePaintOrder": 57,
+          "bboxPt": [
+            248.0,
+            420.0,
+            282.38,
+            600.0
+          ],
+          "notes": [
+            "axis-aligned quad"
+          ]
+        },
+        {
+          "id": "p1-txt44",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 58,
+          "sourcePaintOrder": 58,
+          "bboxPt": [
+            258.96,
+            405.12,
+            271.41,
+            415.92
+          ],
+          "textChars": 3,
+          "lines": 1
+        },
+        {
+          "id": "p1-shp19",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 61,
+          "sourcePaintOrder": 61,
+          "bboxPt": [
+            300.0,
+            420.0,
+            334.38,
+            582.5
+          ],
+          "notes": [
+            "axis-aligned quad"
+          ]
+        },
+        {
+          "id": "p1-txt45",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 62,
+          "sourcePaintOrder": 62,
+          "bboxPt": [
+            309.63,
+            405.12,
+            324.74,
+            415.92
+          ],
+          "textChars": 3,
+          "lines": 1
+        },
+        {
+          "id": "p1-shp20",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 65,
+          "sourcePaintOrder": 65,
+          "bboxPt": [
+            352.0,
+            420.0,
+            386.38,
+            640.0
+          ],
+          "notes": [
+            "axis-aligned quad"
+          ]
+        },
+        {
+          "id": "p1-txt46",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 66,
+          "sourcePaintOrder": 66,
+          "bboxPt": [
+            362.74,
+            405.12,
+            375.64,
+            415.92
+          ],
+          "textChars": 3,
+          "lines": 1
+        },
+        {
+          "id": "p1-shp21",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 69,
+          "sourcePaintOrder": 69,
+          "bboxPt": [
+            404.0,
+            420.0,
+            438.38,
+            617.5
+          ],
+          "notes": [
+            "axis-aligned quad"
+          ]
+        },
+        {
+          "id": "p1-txt47",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 70,
+          "sourcePaintOrder": 70,
+          "bboxPt": [
+            416.08,
+            405.12,
+            426.3,
+            415.92
+          ],
+          "textChars": 3,
+          "lines": 1
+        },
+        {
+          "id": "p1-shp22",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 73,
+          "sourcePaintOrder": 73,
+          "bboxPt": [
+            456.0,
+            420.0,
+            490.38,
+            655.0
+          ],
+          "notes": [
+            "axis-aligned quad"
+          ]
+        },
+        {
+          "id": "p1-txt48",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 74,
+          "sourcePaintOrder": 74,
+          "bboxPt": [
+            466.07,
+            405.12,
+            480.3,
+            415.92
+          ],
+          "textChars": 3,
+          "lines": 1
+        },
+        {
+          "id": "p1-shp23",
+          "type": "freeform",
+          "outcome": "native",
+          "confidence": 0.9,
+          "zIndex": 77,
+          "sourcePaintOrder": 77,
+          "bboxPt": [
+            109.19,
+            520.0,
+            473.19,
+            670.0
+          ],
+          "notes": [
+            "curved outline kept as Bezier custom geometry"
+          ],
+          "segments": 8,
+          "hasCurves": true
+        },
+        {
+          "id": "p1-shp24",
+          "type": "ellipse",
+          "outcome": "native",
+          "confidence": 0.97,
+          "zIndex": 78,
+          "sourcePaintOrder": 78,
+          "bboxPt": [
+            105.99,
+            516.8,
+            112.39,
+            523.2
+          ],
+          "notes": [
+            "4 kappa-fitted cubics"
+          ]
+        },
+        {
+          "id": "p1-shp25",
+          "type": "ellipse",
+          "outcome": "native",
+          "confidence": 0.97,
+          "zIndex": 79,
+          "sourcePaintOrder": 79,
+          "bboxPt": [
+            157.99,
+            576.8,
+            164.39,
+            583.2
+          ],
+          "notes": [
+            "4 kappa-fitted cubics"
+          ]
+        },
+        {
+          "id": "p1-shp26",
+          "type": "ellipse",
+          "outcome": "native",
+          "confidence": 0.97,
+          "zIndex": 80,
+          "sourcePaintOrder": 80,
+          "bboxPt": [
+            209.99,
+            549.3,
+            216.39,
+            555.7
+          ],
+          "notes": [
+            "4 kappa-fitted cubics"
+          ]
+        },
+        {
+          "id": "p1-shp27",
+          "type": "ellipse",
+          "outcome": "native",
+          "confidence": 0.97,
+          "zIndex": 81,
+          "sourcePaintOrder": 81,
+          "bboxPt": [
+            261.99,
+            611.8,
+            268.39,
+            618.2
+          ],
+          "notes": [
+            "4 kappa-fitted cubics"
+          ]
+        },
+        {
+          "id": "p1-shp28",
+          "type": "ellipse",
+          "outcome": "native",
+          "confidence": 0.97,
+          "zIndex": 82,
+          "sourcePaintOrder": 82,
+          "bboxPt": [
+            313.99,
+            594.3,
+            320.39,
+            600.7
+          ],
+          "notes": [
+            "4 kappa-fitted cubics"
+          ]
+        },
+        {
+          "id": "p1-shp29",
+          "type": "ellipse",
+          "outcome": "native",
+          "confidence": 0.97,
+          "zIndex": 83,
+          "sourcePaintOrder": 83,
+          "bboxPt": [
+            365.99,
+            651.8,
+            372.39,
+            658.2
+          ],
+          "notes": [
+            "4 kappa-fitted cubics"
+          ]
+        },
+        {
+          "id": "p1-shp30",
+          "type": "ellipse",
+          "outcome": "native",
+          "confidence": 0.97,
+          "zIndex": 84,
+          "sourcePaintOrder": 84,
+          "bboxPt": [
+            417.99,
+            629.3,
+            424.39,
+            635.7
+          ],
+          "notes": [
+            "4 kappa-fitted cubics"
+          ]
+        },
+        {
+          "id": "p1-shp31",
+          "type": "ellipse",
+          "outcome": "native",
+          "confidence": 0.97,
+          "zIndex": 85,
+          "sourcePaintOrder": 85,
+          "bboxPt": [
+            469.99,
+            666.8,
+            476.39,
+            673.2
+          ],
+          "notes": [
+            "4 kappa-fitted cubics"
+          ]
+        },
+        {
+          "id": "p1-shp32",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 86,
+          "sourcePaintOrder": 86,
+          "bboxPt": [
+            360.0,
+            700.0,
+            372.0,
+            708.0
+          ],
+          "notes": [
+            "axis-aligned quad"
+          ]
+        },
+        {
+          "id": "p1-txt49",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 87,
+          "sourcePaintOrder": 87,
+          "bboxPt": [
+            378.0,
+            696.76,
+            421.52,
+            708.91
+          ],
+          "textChars": 9,
+          "lines": 1
+        },
+        {
+          "id": "p1-shp33",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 96,
+          "sourcePaintOrder": 96,
+          "bboxPt": [
+            450.0,
+            704.0,
+            468.0,
+            704.0
+          ],
+          "notes": [
+            "two-point open stroke"
+          ]
+        },
+        {
+          "id": "p1-txt50",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 97,
+          "sourcePaintOrder": 97,
+          "bboxPt": [
+            474.0,
+            696.76,
+            497.51,
+            708.91
+          ],
+          "textChars": 5,
+          "lines": 1
+        }
+      ],
+      "verification": {
+        "pass": true,
+        "detail": "within tolerance",
+        "metrics": {
+          "ink_missing": 0.0,
+          "ink_added": 0.0,
+          "edge_iou": 0.59174,
+          "mean_delta": 2.27009,
+          "source_ink_ratio": 0.11571,
+          "width": 1275.0,
+          "height": 1651.0
+        },
+        "dpi": 150.0
+      }
+    }
+  ]
+}

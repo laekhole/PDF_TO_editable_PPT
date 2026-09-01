@@ -1,0 +1,184 @@
+{
+  "schemaVersion": "1.0",
+  "tool": {
+    "name": "pdf2editable-ppt",
+    "version": "0.1.0"
+  },
+  "source": {
+    "path": "/home/user/PDF_TO_editable_PPT/fixtures/pdf/text_mixed.pdf",
+    "sha256": "d36fb6944f41afb10b5e8c301d403cc46e7e46e67698396b9e11377c07323ab4",
+    "pages": 1
+  },
+  "output": {
+    "path": "/home/user/PDF_TO_editable_PPT/samples/text_mixed.pptx",
+    "sha256": "f00318057c72b97f6a4a97ce1221965a06961e7a4b27000340912af27f81df1b"
+  },
+  "options": {
+    "mode": "fidelity",
+    "verify": true,
+    "dpi": 150.0,
+    "fallbackDpi": 220.0,
+    "vectorBudget": 900,
+    "detectTables": true,
+    "pages": "all"
+  },
+  "summary": {
+    "pages": 1,
+    "elements": 7,
+    "byOutcome": {
+      "native": 7
+    },
+    "imagesPassedThrough": 0,
+    "imagesReEncoded": 0,
+    "textIntegrity": {
+      "sourceChars": 224,
+      "outputChars": 224,
+      "identical": true,
+      "textElementsRasterised": 0,
+      "note": "counts ignore whitespace and use NFC normalisation; a difference is expected only where text was deliberately kept as a rendered region"
+    }
+  },
+  "warnings": [],
+  "assets": [],
+  "pages": [
+    {
+      "index": 0,
+      "pageNumber": 1,
+      "widthPt": 612.0,
+      "heightPt": 792.0,
+      "rotation": 0,
+      "scanned": false,
+      "degraded": false,
+      "elements": [
+        {
+          "id": "p1-txt1",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 1,
+          "sourcePaintOrder": 1,
+          "bboxPt": [
+            56.0,
+            712.08,
+            352.03,
+            741.78
+          ],
+          "textChars": 23,
+          "lines": 1
+        },
+        {
+          "id": "p1-txt2",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 24,
+          "sourcePaintOrder": 24,
+          "bboxPt": [
+            56.0,
+            673.88,
+            227.03,
+            696.83
+          ],
+          "textChars": 18,
+          "lines": 1
+        },
+        {
+          "id": "p1-txt3",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 42,
+          "sourcePaintOrder": 42,
+          "bboxPt": [
+            64.0,
+            599.48,
+            264.82,
+            656.48
+          ],
+          "textChars": 85,
+          "lines": 3
+        },
+        {
+          "id": "p1-txt4",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 125,
+          "sourcePaintOrder": 125,
+          "bboxPt": [
+            198.43,
+            525.69,
+            413.57,
+            573.69
+          ],
+          "textChars": 81,
+          "lines": 3
+        },
+        {
+          "id": "p1-txt5",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 204,
+          "sourcePaintOrder": 204,
+          "bboxPt": [
+            454.87,
+            471.4,
+            556.0,
+            510.9
+          ],
+          "textChars": 43,
+          "lines": 3
+        },
+        {
+          "id": "p1-txt6",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 245,
+          "sourcePaintOrder": 245,
+          "bboxPt": [
+            15.17,
+            350.97,
+            136.01,
+            369.87
+          ],
+          "rotationDeg": 90.0,
+          "textChars": 12,
+          "lines": 1
+        },
+        {
+          "id": "p1-txt7",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 257,
+          "sourcePaintOrder": 257,
+          "bboxPt": [
+            308.57,
+            323.17,
+            433.24,
+            352.94
+          ],
+          "rotationDeg": 45.0,
+          "textChars": 15,
+          "lines": 1
+        }
+      ],
+      "verification": {
+        "pass": true,
+        "detail": "within tolerance",
+        "metrics": {
+          "ink_missing": 0.0827,
+          "ink_added": 0.0839,
+          "edge_iou": 0.55054,
+          "mean_delta": 38.97302,
+          "source_ink_ratio": 0.03083,
+          "width": 1275.0,
+          "height": 1651.0
+        },
+        "dpi": 150.0
+      }
+    }
+  ]
+}

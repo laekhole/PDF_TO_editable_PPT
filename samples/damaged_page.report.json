@@ -1,0 +1,175 @@
+{
+  "schemaVersion": "1.0",
+  "tool": {
+    "name": "pdf2editable-ppt",
+    "version": "0.1.0"
+  },
+  "source": {
+    "path": "/home/user/PDF_TO_editable_PPT/fixtures/pdf/damaged_page.pdf",
+    "sha256": "0c6b6bc3d062579a48f3f86284326c59a08831f8340184c08defc89f669dec68",
+    "pages": 2
+  },
+  "output": {
+    "path": "/home/user/PDF_TO_editable_PPT/samples/damaged_page.pptx",
+    "sha256": "c7a015b7037e0aa067062a70af318951785b43ae7079f13cbb34e22a28208fd5"
+  },
+  "options": {
+    "mode": "fidelity",
+    "verify": true,
+    "dpi": 150.0,
+    "fallbackDpi": 220.0,
+    "vectorBudget": 900,
+    "detectTables": true,
+    "pages": "all"
+  },
+  "summary": {
+    "pages": 2,
+    "elements": 3,
+    "byOutcome": {
+      "native": 2,
+      "page-fallback": 1
+    },
+    "imagesPassedThrough": 0,
+    "imagesReEncoded": 1,
+    "textIntegrity": {
+      "sourceChars": 20,
+      "outputChars": 20,
+      "identical": true,
+      "textElementsRasterised": 0,
+      "note": "counts ignore whitespace and use NFC normalisation; a difference is expected only where text was deliberately kept as a rendered region"
+    }
+  },
+  "warnings": [
+    "page 2: content stream failed to parse (ValueError); the page falls back to a rendered image"
+  ],
+  "assets": [
+    {
+      "assetId": "fb0001",
+      "format": "png",
+      "widthPx": 1870,
+      "heightPx": 2420,
+      "passthrough": false,
+      "sourceSha256": "",
+      "outputSha256": "caba0cbe55164c0f053d71a29e56bc199186d54cada3cb8b2ab5193d988e88b7",
+      "hasAlpha": false,
+      "note": "lossless render of the source page region (fallback)"
+    }
+  ],
+  "pages": [
+    {
+      "index": 0,
+      "pageNumber": 1,
+      "widthPt": 612.0,
+      "heightPt": 792.0,
+      "rotation": 0,
+      "scanned": false,
+      "degraded": false,
+      "elements": [
+        {
+          "id": "p1-txt2",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 1,
+          "sourcePaintOrder": 1,
+          "bboxPt": [
+            72.0,
+            693.52,
+            280.06,
+            717.82
+          ],
+          "textChars": 23,
+          "lines": 1
+        },
+        {
+          "id": "p1-shp1",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 24,
+          "sourcePaintOrder": 24,
+          "bboxPt": [
+            72.0,
+            520.0,
+            292.0,
+            640.0
+          ],
+          "notes": [
+            "axis-aligned quad"
+          ]
+        }
+      ],
+      "verification": {
+        "pass": true,
+        "detail": "within tolerance",
+        "metrics": {
+          "ink_missing": 0.0,
+          "ink_added": 0.00038,
+          "edge_iou": 0.95547,
+          "mean_delta": 2.04778,
+          "source_ink_ratio": 0.06051,
+          "width": 1275.0,
+          "height": 1651.0
+        },
+        "dpi": 150.0
+      }
+    },
+    {
+      "index": 1,
+      "pageNumber": 2,
+      "widthPt": 612.0,
+      "heightPt": 792.0,
+      "rotation": 0,
+      "scanned": false,
+      "degraded": true,
+      "elements": [
+        {
+          "id": "p2-pagefallback",
+          "type": "rasterFallback",
+          "outcome": "page-fallback",
+          "confidence": 0.0,
+          "zIndex": 0,
+          "sourcePaintOrder": -1,
+          "bboxPt": [
+            0,
+            0,
+            612.0,
+            792.0
+          ],
+          "assetId": "fb0001",
+          "fallbackReason": "the page's content stream yielded no paint operations",
+          "notes": [
+            "whole page rendered from the source at 220 dpi"
+          ]
+        }
+      ],
+      "degradedReason": "the page's content stream yielded no paint operations",
+      "verification": {
+        "pass": true,
+        "detail": "region is effectively blank; nothing to verify",
+        "metrics": {
+          "ink_missing": 0.0,
+          "ink_added": 0.0,
+          "edge_iou": 1.0,
+          "mean_delta": 0.0,
+          "source_ink_ratio": 0.0,
+          "width": 1275.0,
+          "height": 1651.0
+        },
+        "dpi": 150.0
+      },
+      "fallbackRegions": [
+        {
+          "scope": "page",
+          "reason": "the page's content stream yielded no paint operations",
+          "bboxPt": [
+            0,
+            0,
+            612.0,
+            792.0
+          ]
+        }
+      ]
+    }
+  ]
+}

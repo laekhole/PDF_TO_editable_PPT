@@ -1,0 +1,121 @@
+{
+  "schemaVersion": "1.0",
+  "tool": {
+    "name": "pdf2editable-ppt",
+    "version": "0.1.0"
+  },
+  "source": {
+    "path": "/home/user/PDF_TO_editable_PPT/fixtures/pdf/dense_vector.pdf",
+    "sha256": "0511d2fed1239fdcead83fca1eeda6deb3f0e91ecfc410ded3cb3e7fb9c9cf02",
+    "pages": 1
+  },
+  "output": {
+    "path": "/home/user/PDF_TO_editable_PPT/samples/dense_vector.pptx",
+    "sha256": "c9adb5c9c99f3c5d6568a0539995707ed8b8afe19259b9c38d9eaf9c8a616f25"
+  },
+  "options": {
+    "mode": "fidelity",
+    "verify": true,
+    "dpi": 150.0,
+    "fallbackDpi": 220.0,
+    "vectorBudget": 900,
+    "detectTables": true,
+    "pages": "all"
+  },
+  "summary": {
+    "pages": 1,
+    "elements": 2,
+    "byOutcome": {
+      "native": 1,
+      "raster-fallback": 1
+    },
+    "imagesPassedThrough": 0,
+    "imagesReEncoded": 1,
+    "textIntegrity": {
+      "sourceChars": 18,
+      "outputChars": 18,
+      "identical": true,
+      "textElementsRasterised": 0,
+      "note": "counts ignore whitespace and use NFC normalisation; a difference is expected only where text was deliberately kept as a rendered region"
+    }
+  },
+  "warnings": [
+    "page 1 holds 1200 vector shapes, above the 900-shape budget; the vector artwork is kept as a rendered region so PowerPoint stays responsive"
+  ],
+  "assets": [
+    {
+      "assetId": "fb0001",
+      "format": "png",
+      "widthPx": 1276,
+      "heightPx": 1263,
+      "passthrough": false,
+      "sourceSha256": "",
+      "outputSha256": "e285dbf860436416a514b9a3521ae9d90128d7be267d4a865436ba8c9bd2141d",
+      "hasAlpha": false,
+      "note": "lossless render of the source page region (fallback)"
+    }
+  ],
+  "pages": [
+    {
+      "index": 0,
+      "pageNumber": 1,
+      "widthPt": 612.0,
+      "heightPt": 792.0,
+      "rotation": 0,
+      "scanned": false,
+      "degraded": false,
+      "elements": [
+        {
+          "id": "p1-txt1201",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 1,
+          "sourcePaintOrder": 1,
+          "bboxPt": [
+            56.0,
+            744.96,
+            198.38,
+            763.86
+          ],
+          "textChars": 20,
+          "lines": 1
+        },
+        {
+          "id": "p1-shp1",
+          "type": "rasterFallback",
+          "outcome": "raster-fallback",
+          "confidence": 0.4,
+          "zIndex": 21,
+          "sourcePaintOrder": 21,
+          "bboxPt": [
+            99.24,
+            191.07,
+            516.9,
+            604.39
+          ],
+          "assetId": "fb0001",
+          "fallbackReason": "page exceeds the 900 native-shape budget (1200 shapes)",
+          "notes": [
+            "4 kappa-fitted cubics",
+            "region rendered from the source PDF at 220 dpi"
+          ]
+        }
+      ],
+      "verification": {
+        "pass": true,
+        "detail": "within tolerance",
+        "metrics": {
+          "ink_missing": 0.0,
+          "ink_added": 0.0,
+          "edge_iou": 0.93342,
+          "mean_delta": 6.89985,
+          "source_ink_ratio": 0.08075,
+          "width": 1275.0,
+          "height": 1651.0
+        },
+        "dpi": 150.0
+      }
+    }
+  ]
+}

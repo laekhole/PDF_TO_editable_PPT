@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdf2editable-ppt"
+version = "0.1.0"
+description = "Non-destructive PDF to editable PPTX converter (local-only, fidelity-first)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+dependencies = [
+  "pdfplumber>=0.11",
+  "pdfminer.six>=20240706",
+  "pypdfium2>=4.30",
+  "python-pptx>=1.0",
+  "pillow>=10.0",
+  "lxml>=5.0",
+  "numpy>=1.26",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "reportlab>=4.0"]
+
+[project.scripts]
+pdf2editable-ppt = "pdf2editable_ppt.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

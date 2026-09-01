@@ -1,0 +1,219 @@
+{
+  "schemaVersion": "1.0",
+  "tool": {
+    "name": "pdf2editable-ppt",
+    "version": "0.1.0"
+  },
+  "source": {
+    "path": "/home/user/PDF_TO_editable_PPT/fixtures/pdf/mixed_sizes.pdf",
+    "sha256": "32bfa10ddf306367e051cbdb834caa4bcd2cc13c47ddc69272f75d7561459c2d",
+    "pages": 3
+  },
+  "output": {
+    "path": "/home/user/PDF_TO_editable_PPT/samples/mixed_sizes.pptx",
+    "sha256": "afaebfb2d4a80a517fa8d8968d11d9b5ab2f5f02ed2015bf9e4a0e6bd5519362"
+  },
+  "options": {
+    "mode": "fidelity",
+    "verify": true,
+    "dpi": 150.0,
+    "fallbackDpi": 220.0,
+    "vectorBudget": 900,
+    "detectTables": true,
+    "pages": "all"
+  },
+  "summary": {
+    "pages": 3,
+    "elements": 6,
+    "byOutcome": {
+      "native": 6
+    },
+    "imagesPassedThrough": 0,
+    "imagesReEncoded": 0,
+    "textIntegrity": {
+      "sourceChars": 37,
+      "outputChars": 37,
+      "identical": true,
+      "textElementsRasterised": 0,
+      "note": "counts ignore whitespace and use NFC normalisation; a difference is expected only where text was deliberately kept as a rendered region"
+    }
+  },
+  "warnings": [],
+  "assets": [],
+  "pages": [
+    {
+      "index": 0,
+      "pageNumber": 1,
+      "widthPt": 595.28,
+      "heightPt": 841.89,
+      "rotation": 0,
+      "scanned": false,
+      "degraded": false,
+      "elements": [
+        {
+          "id": "p1-txt2",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 1,
+          "sourcePaintOrder": 1,
+          "bboxPt": [
+            56.0,
+            753.52,
+            147.01,
+            777.82
+          ],
+          "textChars": 11,
+          "lines": 1
+        },
+        {
+          "id": "p1-shp1",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 12,
+          "sourcePaintOrder": 12,
+          "bboxPt": [
+            56.0,
+            600.0,
+            256.0,
+            700.0
+          ],
+          "notes": [
+            "axis-aligned quad"
+          ]
+        }
+      ],
+      "verification": {
+        "pass": true,
+        "detail": "within tolerance",
+        "metrics": {
+          "ink_missing": 0.0,
+          "ink_added": 0.0,
+          "edge_iou": 0.96528,
+          "mean_delta": 2.06557,
+          "source_ink_ratio": 0.04305,
+          "width": 1241.0,
+          "height": 1754.0
+        },
+        "dpi": 150.0
+      }
+    },
+    {
+      "index": 1,
+      "pageNumber": 2,
+      "widthPt": 792.0,
+      "heightPt": 612.0,
+      "rotation": 0,
+      "scanned": false,
+      "degraded": false,
+      "elements": [
+        {
+          "id": "p2-txt2",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 1,
+          "sourcePaintOrder": 1,
+          "bboxPt": [
+            56.0,
+            533.52,
+            199.05,
+            557.82
+          ],
+          "textChars": 16,
+          "lines": 1
+        },
+        {
+          "id": "p2-shp1",
+          "type": "ellipse",
+          "outcome": "native",
+          "confidence": 0.97,
+          "zIndex": 17,
+          "sourcePaintOrder": 17,
+          "bboxPt": [
+            300.0,
+            300.0,
+            500.0,
+            420.0
+          ],
+          "notes": [
+            "4 kappa-fitted cubics"
+          ]
+        }
+      ],
+      "verification": {
+        "pass": true,
+        "detail": "within tolerance",
+        "metrics": {
+          "ink_missing": 0.0,
+          "ink_added": 0.0,
+          "edge_iou": 0.93735,
+          "mean_delta": 2.52418,
+          "source_ink_ratio": 0.04305,
+          "width": 1651.0,
+          "height": 1275.0
+        },
+        "dpi": 150.0
+      }
+    },
+    {
+      "index": 2,
+      "pageNumber": 3,
+      "widthPt": 300.0,
+      "heightPt": 400.0,
+      "rotation": 0,
+      "scanned": false,
+      "degraded": false,
+      "elements": [
+        {
+          "id": "p3-txt2",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 1,
+          "sourcePaintOrder": 1,
+          "bboxPt": [
+            24.0,
+            354.96,
+            119.73,
+            373.86
+          ],
+          "textChars": 13,
+          "lines": 1
+        },
+        {
+          "id": "p3-shp1",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 14,
+          "sourcePaintOrder": 14,
+          "bboxPt": [
+            24.0,
+            100.0,
+            274.0,
+            300.0
+          ],
+          "notes": [
+            "axis-aligned quad"
+          ]
+        }
+      ],
+      "verification": {
+        "pass": true,
+        "detail": "within tolerance",
+        "metrics": {
+          "ink_missing": 0.0,
+          "ink_added": 0.0,
+          "edge_iou": 0.8721,
+          "mean_delta": 17.04309,
+          "source_ink_ratio": 0.03155,
+          "width": 625.0,
+          "height": 834.0
+        },
+        "dpi": 150.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,219 @@
+{
+  "schemaVersion": "1.0",
+  "tool": {
+    "name": "pdf2editable-ppt",
+    "version": "0.1.0"
+  },
+  "source": {
+    "path": "/home/user/PDF_TO_editable_PPT/fixtures/pdf/images.pdf",
+    "sha256": "5a53b9dee8be771d6bb7b520e032dff8b914b36003e29fdfaa39e5c80f9ff72e",
+    "pages": 1
+  },
+  "output": {
+    "path": "/home/user/PDF_TO_editable_PPT/samples/images.pptx",
+    "sha256": "2a73d3d356d1b24730af4a090ac87213151a38d2dbbdb35f4416bd2fcba79684"
+  },
+  "options": {
+    "mode": "fidelity",
+    "verify": true,
+    "dpi": 150.0,
+    "fallbackDpi": 220.0,
+    "vectorBudget": 900,
+    "detectTables": true,
+    "pages": "all"
+  },
+  "summary": {
+    "pages": 1,
+    "elements": 7,
+    "byOutcome": {
+      "native": 7
+    },
+    "imagesPassedThrough": 1,
+    "imagesReEncoded": 1,
+    "textIntegrity": {
+      "sourceChars": 13,
+      "outputChars": 13,
+      "identical": true,
+      "textElementsRasterised": 0,
+      "note": "counts ignore whitespace and use NFC normalisation; a difference is expected only where text was deliberately kept as a rendered region"
+    }
+  },
+  "warnings": [],
+  "assets": [
+    {
+      "assetId": "img0001",
+      "format": "jpg",
+      "widthPx": 240,
+      "heightPx": 160,
+      "passthrough": true,
+      "sourceSha256": "6d1c7ba15ad1bedda32b694d6ed4b5abf4eb63edba6a715d52126d1f21f15deb",
+      "outputSha256": "6d1c7ba15ad1bedda32b694d6ed4b5abf4eb63edba6a715d52126d1f21f15deb",
+      "hasAlpha": false,
+      "note": "original JPEG stream copied without re-encoding"
+    },
+    {
+      "assetId": "img0002",
+      "format": "png",
+      "widthPx": 160,
+      "heightPx": 160,
+      "passthrough": false,
+      "sourceSha256": "357f2683ecd6e15d8707f8793d01f153cf01694f2d2358d7b5a3a42ffc09f502",
+      "outputSha256": "7c52f069ecd96551441e9c0c8daec7a33cb840e91d2d178e0276620cb7d0654f",
+      "hasAlpha": true,
+      "note": "decoded once and written as lossless PNG with the source soft mask applied as alpha"
+    }
+  ],
+  "pages": [
+    {
+      "index": 0,
+      "pageNumber": 1,
+      "widthPt": 612.0,
+      "heightPt": 792.0,
+      "rotation": 0,
+      "scanned": false,
+      "degraded": false,
+      "elements": [
+        {
+          "id": "p1-txt7",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 1,
+          "sourcePaintOrder": 1,
+          "bboxPt": [
+            56.0,
+            734.96,
+            158.69,
+            753.86
+          ],
+          "textChars": 14,
+          "lines": 1
+        },
+        {
+          "id": "p1-img1",
+          "type": "image",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 15,
+          "sourcePaintOrder": 15,
+          "bboxPt": [
+            56.0,
+            600.0,
+            236.0,
+            720.0
+          ],
+          "assetId": "img0001",
+          "notes": [
+            "original JPG stream reused without re-encoding"
+          ]
+        },
+        {
+          "id": "p1-img2",
+          "type": "image",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 16,
+          "sourcePaintOrder": 16,
+          "bboxPt": [
+            270.0,
+            600.0,
+            360.0,
+            720.0
+          ],
+          "assetId": "img0001",
+          "notes": [
+            "original JPG stream reused without re-encoding"
+          ]
+        },
+        {
+          "id": "p1-img3",
+          "type": "image",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 17,
+          "sourcePaintOrder": 17,
+          "bboxPt": [
+            400.0,
+            600.0,
+            520.0,
+            720.0
+          ],
+          "assetId": "img0002",
+          "notes": [
+            "decoded once and written as lossless PNG with the source soft mask applied as alpha"
+          ]
+        },
+        {
+          "id": "p1-img4",
+          "type": "image",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 18,
+          "sourcePaintOrder": 18,
+          "bboxPt": [
+            60.0,
+            410.0,
+            240.0,
+            530.0
+          ],
+          "rotationDeg": 30.0,
+          "assetId": "img0001",
+          "notes": [
+            "original JPG stream reused without re-encoding"
+          ]
+        },
+        {
+          "id": "p1-img5",
+          "type": "image",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 19,
+          "sourcePaintOrder": 19,
+          "bboxPt": [
+            320.0,
+            400.0,
+            430.0,
+            480.0
+          ],
+          "assetId": "img0001",
+          "notes": [
+            "original JPG stream reused without re-encoding",
+            "clip recovered as a picture crop"
+          ]
+        },
+        {
+          "id": "p1-img6",
+          "type": "image",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 20,
+          "sourcePaintOrder": 20,
+          "bboxPt": [
+            56.0,
+            250.0,
+            176.0,
+            330.0
+          ],
+          "assetId": "img0001",
+          "notes": [
+            "original JPG stream reused without re-encoding"
+          ]
+        }
+      ],
+      "verification": {
+        "pass": true,
+        "detail": "within tolerance",
+        "metrics": {
+          "ink_missing": 0.0,
+          "ink_added": 0.0,
+          "edge_iou": 0.87811,
+          "mean_delta": 1.96113,
+          "source_ink_ratio": 0.17893,
+          "width": 1275.0,
+          "height": 1651.0
+        },
+        "dpi": 150.0
+      }
+    }
+  ]
+}

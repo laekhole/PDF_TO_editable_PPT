@@ -1,0 +1,231 @@
+{
+  "schemaVersion": "1.0",
+  "tool": {
+    "name": "pdf2editable-ppt",
+    "version": "0.1.0"
+  },
+  "source": {
+    "path": "/home/user/PDF_TO_editable_PPT/fixtures/pdf/rotated_pages.pdf",
+    "sha256": "3acfecc79441e47ba598d67aef5972b0b30dacdc754a7bcdca41cf9b07c91f04",
+    "pages": 2
+  },
+  "output": {
+    "path": "/home/user/PDF_TO_editable_PPT/samples/rotated_pages.pptx",
+    "sha256": "c298fb6945d509bf9228e4753560cbc82c2701d6ca2a9c49ad3261d58253de9e"
+  },
+  "options": {
+    "mode": "fidelity",
+    "verify": true,
+    "dpi": 150.0,
+    "fallbackDpi": 220.0,
+    "vectorBudget": 900,
+    "detectTables": true,
+    "pages": "all"
+  },
+  "summary": {
+    "pages": 2,
+    "elements": 8,
+    "byOutcome": {
+      "native": 8
+    },
+    "imagesPassedThrough": 0,
+    "imagesReEncoded": 0,
+    "textIntegrity": {
+      "sourceChars": 17,
+      "outputChars": 17,
+      "identical": true,
+      "textElementsRasterised": 0,
+      "note": "counts ignore whitespace and use NFC normalisation; a difference is expected only where text was deliberately kept as a rendered region"
+    }
+  },
+  "warnings": [],
+  "assets": [],
+  "pages": [
+    {
+      "index": 0,
+      "pageNumber": 1,
+      "widthPt": 792.0,
+      "heightPt": 612.0,
+      "rotation": 90,
+      "scanned": false,
+      "degraded": false,
+      "elements": [
+        {
+          "id": "p1-txt4",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 1,
+          "sourcePaintOrder": 1,
+          "bboxPt": [
+            661.29,
+            481.49,
+            751.31,
+            508.49
+          ],
+          "rotationDeg": -90.0,
+          "textChars": 9,
+          "lines": 1
+        },
+        {
+          "id": "p1-shp1",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 10,
+          "sourcePaintOrder": 10,
+          "bboxPt": [
+            560.0,
+            340.0,
+            660.0,
+            540.0
+          ],
+          "notes": [
+            "axis-aligned quad"
+          ]
+        },
+        {
+          "id": "p1-shp2",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 11,
+          "sourcePaintOrder": 11,
+          "bboxPt": [
+            520.0,
+            212.0,
+            540.0,
+            540.0
+          ],
+          "notes": [
+            "two-point open stroke"
+          ]
+        },
+        {
+          "id": "p1-shp3",
+          "type": "ellipse",
+          "outcome": "native",
+          "confidence": 0.97,
+          "zIndex": 12,
+          "sourcePaintOrder": 12,
+          "bboxPt": [
+            240.0,
+            102.0,
+            360.0,
+            222.0
+          ],
+          "notes": [
+            "4 kappa-fitted cubics"
+          ]
+        }
+      ],
+      "verification": {
+        "pass": true,
+        "detail": "within tolerance",
+        "metrics": {
+          "ink_missing": 0.0,
+          "ink_added": 0.0,
+          "edge_iou": 0.98249,
+          "mean_delta": 1.36581,
+          "source_ink_ratio": 0.07239,
+          "width": 1651.0,
+          "height": 1275.0
+        },
+        "dpi": 150.0
+      }
+    },
+    {
+      "index": 1,
+      "pageNumber": 2,
+      "widthPt": 792.0,
+      "heightPt": 612.0,
+      "rotation": 270,
+      "scanned": false,
+      "degraded": false,
+      "elements": [
+        {
+          "id": "p2-txt4",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 1,
+          "sourcePaintOrder": 1,
+          "bboxPt": [
+            35.13,
+            109.07,
+            136.27,
+            136.07
+          ],
+          "rotationDeg": 90.0,
+          "textChars": 10,
+          "lines": 1
+        },
+        {
+          "id": "p2-shp1",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 11,
+          "sourcePaintOrder": 11,
+          "bboxPt": [
+            132.0,
+            72.0,
+            232.0,
+            272.0
+          ],
+          "notes": [
+            "axis-aligned quad"
+          ]
+        },
+        {
+          "id": "p2-shp2",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 12,
+          "sourcePaintOrder": 12,
+          "bboxPt": [
+            252.0,
+            72.0,
+            272.0,
+            400.0
+          ],
+          "notes": [
+            "two-point open stroke"
+          ]
+        },
+        {
+          "id": "p2-shp3",
+          "type": "ellipse",
+          "outcome": "native",
+          "confidence": 0.97,
+          "zIndex": 13,
+          "sourcePaintOrder": 13,
+          "bboxPt": [
+            432.0,
+            390.0,
+            552.0,
+            510.0
+          ],
+          "notes": [
+            "4 kappa-fitted cubics"
+          ]
+        }
+      ],
+      "verification": {
+        "pass": true,
+        "detail": "within tolerance",
+        "metrics": {
+          "ink_missing": 0.0,
+          "ink_added": 0.0,
+          "edge_iou": 0.97933,
+          "mean_delta": 1.50042,
+          "source_ink_ratio": 0.07259,
+          "width": 1651.0,
+          "height": 1275.0
+        },
+        "dpi": 150.0
+      }
+    }
+  ]
+}
