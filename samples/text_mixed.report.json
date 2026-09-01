@@ -11,7 +11,7 @@
   },
   "output": {
     "path": "/home/user/PDF_TO_editable_PPT/samples/text_mixed.pptx",
-    "sha256": "97b93053777e6acb5d524d167c99bca3e745c0d135c3cc6e016e36e52519a769"
+    "sha256": "8fc55a0788bb468a9e476b96cebd1d354da2dff8ccb60f10d06656aebf2536a6"
   },
   "options": {
     "mode": "fidelity",
@@ -25,6 +25,7 @@
   "summary": {
     "pages": 1,
     "elements": 7,
+    "absorbedElements": 0,
     "byOutcome": {
       "native": 7
     },

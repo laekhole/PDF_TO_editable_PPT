@@ -248,6 +248,7 @@ def _materialise_fallbacks(
                 if el is anchor:
                     continue
                 el.consumed = True
+                el.absorbed_by = anchor.id
                 el.outcome = Outcome.RASTER_FALLBACK
                 el.fallback_reason = el.fallback_reason or anchor.fallback_reason
                 el.note("covered by fallback region %s" % anchor.id)
@@ -319,8 +320,10 @@ def _page_fallback(
     asset = _render_region_asset(
         document, pdf_path, page, region, opts.fallback_dpi, password
     )
+    fallback_id = "p%d-pagefallback" % (page.index + 1)
     for el in page.elements:
         el.consumed = True
+        el.absorbed_by = fallback_id
         el.outcome = Outcome.PAGE_FALLBACK
         el.fallback_reason = reason
     if asset is None:
@@ -330,7 +333,7 @@ def _page_fallback(
         )
         return
     el = Element(
-        id="p%d-pagefallback" % (page.index + 1),
+        id=fallback_id,
         type=ElementType.RASTER_FALLBACK,
         bbox=region,
         z_index=0,

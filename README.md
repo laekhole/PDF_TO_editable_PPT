@@ -124,6 +124,11 @@ Outcomes are `native`, `native-with-warning`, `svg-fallback`,
 `docs/report-schema.json`, and the schema *requires* a `fallbackReason` on
 every non-native outcome — silent failure is not representable.
 
+A source object that another object took over — a ruling absorbed into a
+table, an element replaced by a fallback region — is not dropped from the
+report. It moves to the page's `absorbed` list with an `absorbedBy` pointing at
+whatever adopted it, so nothing disappears without a paper trail.
+
 The report also records, per image asset, the source and output SHA-256 and
 whether the original compressed stream was reused unchanged.
 

@@ -11,7 +11,7 @@
   },
   "output": {
     "path": "/home/user/PDF_TO_editable_PPT/samples/damaged_page.pptx",
-    "sha256": "5e79418425dbc6cc488e05091ba38b0cb61987cabe7bb1f0b1cc1a1c21af4464"
+    "sha256": "fb1ddbdb4045864064e527357f91413214f9e8a705a468fb686ed4329311971d"
   },
   "options": {
     "mode": "fidelity",
@@ -25,6 +25,7 @@
   "summary": {
     "pages": 2,
     "elements": 3,
+    "absorbedElements": 0,
     "byOutcome": {
       "native": 2,
       "page-fallback": 1

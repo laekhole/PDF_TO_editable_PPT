@@ -241,7 +241,14 @@ class Element:
     outcome: Outcome = Outcome.NATIVE
     notes: List[str] = field(default_factory=list)
     consumed: bool = False
-    """Set when another element (e.g. a table) absorbed this one."""
+    """Set when another element (a table, or a fallback region) absorbed this one.
+
+    A consumed element is not emitted onto the slide, but it is still reported:
+    the point of the report is that no source object disappears without a
+    record of where it went.
+    """
+    absorbed_by: Optional[str] = None
+    """Id of the element that took this one over."""
     paint_bbox: Optional[Rect] = None
     """Axis-aligned page-space bounds of the painted result.
 

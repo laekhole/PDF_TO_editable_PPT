@@ -60,6 +60,8 @@ def _element_entry(el: Element) -> Dict[str, Any]:
                 if c.merged_by is None and (c.row_span > 1 or c.col_span > 1)
             ),
         }
+    if el.absorbed_by:
+        entry["absorbedBy"] = el.absorbed_by
     if el.type is ElementType.FREEFORM and el.content is not None:
         entry["segments"] = len(el.content.segments)
         entry["hasCurves"] = el.content.has_curves()
@@ -110,16 +112,22 @@ class ReportBuilder:
         by_outcome: Dict[str, int] = {}
         pages: List[Dict[str, Any]] = []
         total_elements = 0
+        total_absorbed = 0
         for page in document.pages:
             pr = self.page(page)
             entries = []
+            absorbed = []
             for el in page.elements:
-                if el.consumed and el.type is not ElementType.TABLE:
-                    continue
                 entry = _element_entry(el)
+                if el.consumed:
+                    # Not on the slide, but still accounted for: the reader can
+                    # see which object took it over and why.
+                    absorbed.append(entry)
+                    continue
                 by_outcome[entry["outcome"]] = by_outcome.get(entry["outcome"], 0) + 1
                 entries.append(entry)
                 total_elements += 1
+            total_absorbed += len(absorbed)
             page_entry: Dict[str, Any] = {
                 "index": page.index,
                 "pageNumber": page.index + 1,
@@ -136,6 +144,8 @@ class ReportBuilder:
                 page_entry["verification"] = pr.verification
             if pr.fallback_regions:
                 page_entry["fallbackRegions"] = pr.fallback_regions
+            if absorbed:
+                page_entry["absorbed"] = absorbed
             pages.append(page_entry)
 
         assets = [
@@ -169,6 +179,7 @@ class ReportBuilder:
             "summary": {
                 "pages": len(document.pages),
                 "elements": total_elements,
+                "absorbedElements": total_absorbed,
                 "byOutcome": by_outcome,
                 "imagesPassedThrough": sum(1 for a in document.assets.values() if a.passthrough),
                 "imagesReEncoded": sum(

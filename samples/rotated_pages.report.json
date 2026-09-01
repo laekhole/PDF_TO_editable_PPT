@@ -11,7 +11,7 @@
   },
   "output": {
     "path": "/home/user/PDF_TO_editable_PPT/samples/rotated_pages.pptx",
-    "sha256": "d8af8acbad285e59fa7c6858e1e193e0f91248019b48167af680f7d091df530e"
+    "sha256": "6525b81e5ee86f5c4f1f7c94a1c020e2536759d451ee8ad6c589ddacac284337"
   },
   "options": {
     "mode": "fidelity",
@@ -25,6 +25,7 @@
   "summary": {
     "pages": 2,
     "elements": 8,
+    "absorbedElements": 0,
     "byOutcome": {
       "native": 8
     },

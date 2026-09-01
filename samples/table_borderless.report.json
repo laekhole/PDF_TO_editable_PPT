@@ -11,7 +11,7 @@
   },
   "output": {
     "path": "/home/user/PDF_TO_editable_PPT/samples/table_borderless.pptx",
-    "sha256": "798733603f09fd7f6a70789547ba68441ab96e3f68bd72d687c5ca94dcd091f4"
+    "sha256": "89b12130beccdbefceb508bf40145825316cb87c25a5dbd22ccbc8a002746320"
   },
   "options": {
     "mode": "fidelity",
@@ -25,6 +25,7 @@
   "summary": {
     "pages": 1,
     "elements": 13,
+    "absorbedElements": 0,
     "byOutcome": {
       "native": 13
     },

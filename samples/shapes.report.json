@@ -11,7 +11,7 @@
   },
   "output": {
     "path": "/home/user/PDF_TO_editable_PPT/samples/shapes.pptx",
-    "sha256": "076d5ee5689bb0466568a7316d758a5c8fe4866696525ff81ff4a77ddd9fb543"
+    "sha256": "c9518cc326d8b65ab64f3f42fda55ab3dbb048776d6a43fea63fdc4d000e4677"
   },
   "options": {
     "mode": "fidelity",
@@ -25,6 +25,7 @@
   "summary": {
     "pages": 1,
     "elements": 18,
+    "absorbedElements": 0,
     "byOutcome": {
       "native": 18
     },

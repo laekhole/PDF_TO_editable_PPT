@@ -209,7 +209,9 @@ did not run.
 ## Report (`report.py`)
 
 Every object appears with its type, outcome, confidence, bbox, and — when it is
-not native — the reason. Every image asset appears with its source and output
+not native — the reason. Objects that another object took over (a ruling
+absorbed into a table, an element replaced by a fallback region) move to the
+page's `absorbed` list with an `absorbedBy` pointer rather than vanishing. Every image asset appears with its source and output
 SHA-256 and whether the original stream was reused. Page-level verification
 metrics and fallback regions are included. The schema is
 `docs/report-schema.json`.

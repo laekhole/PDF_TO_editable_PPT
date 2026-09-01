@@ -66,3 +66,24 @@ def test_committed_samples_validate(validator):
             report = json.load(fh)
         errors = list(validator.iter_errors(report))
         assert not errors, "%s: %s" % (os.path.basename(path), errors[0].message)
+
+
+def test_absorbed_objects_are_recorded_not_dropped(conversions, validator):
+    """A source object that another object took over still has a paper trail."""
+    report = conversions.get("table_lattice", verify=True).report
+    page = report["pages"][0]
+    absorbed = page.get("absorbed", [])
+    assert absorbed, "the table adopted rules, fills and cell text"
+    table_id = next(e["id"] for e in page["elements"] if e["type"] == "table")
+    assert all(e["absorbedBy"] == table_id for e in absorbed)
+    assert report["summary"]["absorbedElements"] == len(absorbed)
+    assert not list(validator.iter_errors(report))
+
+
+def test_a_fallback_region_records_what_it_covered(conversions, validator):
+    report = conversions.get("clip_gradient", verify=True).report
+    page = report["pages"][0]
+    live_ids = {e["id"] for e in page["elements"]}
+    for entry in page.get("absorbed", []):
+        assert entry["absorbedBy"] in live_ids
+        assert entry.get("fallbackReason")

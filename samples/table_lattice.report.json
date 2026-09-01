@@ -11,7 +11,7 @@
   },
   "output": {
     "path": "/home/user/PDF_TO_editable_PPT/samples/table_lattice.pptx",
-    "sha256": "f57d092ac3692bc52fb1ec4fe86d2fa6b2c46930e8c082981d17404bc870446c"
+    "sha256": "577132bee11b1326eb3c2551039646013bd605bf5e1a9f1722a282f26b7216e7"
   },
   "options": {
     "mode": "fidelity",
@@ -25,6 +25,7 @@
   "summary": {
     "pages": 1,
     "elements": 2,
+    "absorbedElements": 73,
     "byOutcome": {
       "native": 2
     },
@@ -102,7 +103,1411 @@
           "height": 1651.0
         },
         "dpi": 150.0
-      }
+      },
+      "absorbed": [
+        {
+          "id": "p1-shp1",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 18,
+          "sourcePaintOrder": 18,
+          "bboxPt": [
+            56.0,
+            674.0,
+            176.0,
+            700.0
+          ],
+          "notes": [
+            "axis-aligned quad",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp2",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 19,
+          "sourcePaintOrder": 19,
+          "bboxPt": [
+            176.0,
+            674.0,
+            356.0,
+            700.0
+          ],
+          "notes": [
+            "axis-aligned quad",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp3",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 20,
+          "sourcePaintOrder": 20,
+          "bboxPt": [
+            356.0,
+            674.0,
+            476.0,
+            700.0
+          ],
+          "notes": [
+            "axis-aligned quad",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp4",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 21,
+          "sourcePaintOrder": 21,
+          "bboxPt": [
+            56.0,
+            650.0,
+            176.0,
+            674.0
+          ],
+          "notes": [
+            "axis-aligned quad",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp5",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 22,
+          "sourcePaintOrder": 22,
+          "bboxPt": [
+            176.0,
+            650.0,
+            266.0,
+            674.0
+          ],
+          "notes": [
+            "axis-aligned quad",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp6",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 23,
+          "sourcePaintOrder": 23,
+          "bboxPt": [
+            266.0,
+            650.0,
+            356.0,
+            674.0
+          ],
+          "notes": [
+            "axis-aligned quad",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp7",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 24,
+          "sourcePaintOrder": 24,
+          "bboxPt": [
+            356.0,
+            650.0,
+            476.0,
+            674.0
+          ],
+          "notes": [
+            "axis-aligned quad",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp8",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 25,
+          "sourcePaintOrder": 25,
+          "bboxPt": [
+            56.0,
+            576.0,
+            176.0,
+            602.0
+          ],
+          "notes": [
+            "axis-aligned quad",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp9",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 26,
+          "sourcePaintOrder": 26,
+          "bboxPt": [
+            176.0,
+            576.0,
+            266.0,
+            602.0
+          ],
+          "notes": [
+            "axis-aligned quad",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp10",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 27,
+          "sourcePaintOrder": 27,
+          "bboxPt": [
+            266.0,
+            576.0,
+            356.0,
+            602.0
+          ],
+          "notes": [
+            "axis-aligned quad",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp11",
+          "type": "rect",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 28,
+          "sourcePaintOrder": 28,
+          "bboxPt": [
+            356.0,
+            576.0,
+            476.0,
+            602.0
+          ],
+          "notes": [
+            "axis-aligned quad",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp12",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 29,
+          "sourcePaintOrder": 29,
+          "bboxPt": [
+            56.0,
+            700.0,
+            176.0,
+            700.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp13",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 30,
+          "sourcePaintOrder": 30,
+          "bboxPt": [
+            176.0,
+            700.0,
+            266.0,
+            700.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp14",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 31,
+          "sourcePaintOrder": 31,
+          "bboxPt": [
+            266.0,
+            700.0,
+            356.0,
+            700.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp15",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 32,
+          "sourcePaintOrder": 32,
+          "bboxPt": [
+            356.0,
+            700.0,
+            476.0,
+            700.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp16",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 33,
+          "sourcePaintOrder": 33,
+          "bboxPt": [
+            56.0,
+            674.0,
+            176.0,
+            674.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp17",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 34,
+          "sourcePaintOrder": 34,
+          "bboxPt": [
+            176.0,
+            674.0,
+            266.0,
+            674.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp18",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 35,
+          "sourcePaintOrder": 35,
+          "bboxPt": [
+            266.0,
+            674.0,
+            356.0,
+            674.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp19",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 36,
+          "sourcePaintOrder": 36,
+          "bboxPt": [
+            356.0,
+            674.0,
+            476.0,
+            674.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp20",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 37,
+          "sourcePaintOrder": 37,
+          "bboxPt": [
+            56.0,
+            650.0,
+            176.0,
+            650.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp21",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 38,
+          "sourcePaintOrder": 38,
+          "bboxPt": [
+            176.0,
+            650.0,
+            266.0,
+            650.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp22",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 39,
+          "sourcePaintOrder": 39,
+          "bboxPt": [
+            266.0,
+            650.0,
+            356.0,
+            650.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp23",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 40,
+          "sourcePaintOrder": 40,
+          "bboxPt": [
+            356.0,
+            650.0,
+            476.0,
+            650.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp24",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 41,
+          "sourcePaintOrder": 41,
+          "bboxPt": [
+            176.0,
+            626.0,
+            266.0,
+            626.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp25",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 42,
+          "sourcePaintOrder": 42,
+          "bboxPt": [
+            266.0,
+            626.0,
+            356.0,
+            626.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp26",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 43,
+          "sourcePaintOrder": 43,
+          "bboxPt": [
+            356.0,
+            626.0,
+            476.0,
+            626.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp27",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 44,
+          "sourcePaintOrder": 44,
+          "bboxPt": [
+            56.0,
+            602.0,
+            176.0,
+            602.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp28",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 45,
+          "sourcePaintOrder": 45,
+          "bboxPt": [
+            176.0,
+            602.0,
+            266.0,
+            602.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp29",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 46,
+          "sourcePaintOrder": 46,
+          "bboxPt": [
+            266.0,
+            602.0,
+            356.0,
+            602.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp30",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 47,
+          "sourcePaintOrder": 47,
+          "bboxPt": [
+            356.0,
+            602.0,
+            476.0,
+            602.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp31",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 48,
+          "sourcePaintOrder": 48,
+          "bboxPt": [
+            56.0,
+            576.0,
+            176.0,
+            576.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp32",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 49,
+          "sourcePaintOrder": 49,
+          "bboxPt": [
+            176.0,
+            576.0,
+            266.0,
+            576.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp33",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 50,
+          "sourcePaintOrder": 50,
+          "bboxPt": [
+            266.0,
+            576.0,
+            356.0,
+            576.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp34",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 51,
+          "sourcePaintOrder": 51,
+          "bboxPt": [
+            356.0,
+            576.0,
+            476.0,
+            576.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp35",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 52,
+          "sourcePaintOrder": 52,
+          "bboxPt": [
+            56.0,
+            674.0,
+            56.0,
+            700.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp36",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 53,
+          "sourcePaintOrder": 53,
+          "bboxPt": [
+            56.0,
+            650.0,
+            56.0,
+            674.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp37",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 54,
+          "sourcePaintOrder": 54,
+          "bboxPt": [
+            56.0,
+            626.0,
+            56.0,
+            650.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp38",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 55,
+          "sourcePaintOrder": 55,
+          "bboxPt": [
+            56.0,
+            602.0,
+            56.0,
+            626.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp39",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 56,
+          "sourcePaintOrder": 56,
+          "bboxPt": [
+            56.0,
+            576.0,
+            56.0,
+            602.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp40",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 57,
+          "sourcePaintOrder": 57,
+          "bboxPt": [
+            176.0,
+            674.0,
+            176.0,
+            700.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp41",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 58,
+          "sourcePaintOrder": 58,
+          "bboxPt": [
+            176.0,
+            650.0,
+            176.0,
+            674.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp42",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 59,
+          "sourcePaintOrder": 59,
+          "bboxPt": [
+            176.0,
+            626.0,
+            176.0,
+            650.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp43",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 60,
+          "sourcePaintOrder": 60,
+          "bboxPt": [
+            176.0,
+            602.0,
+            176.0,
+            626.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp44",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 61,
+          "sourcePaintOrder": 61,
+          "bboxPt": [
+            176.0,
+            576.0,
+            176.0,
+            602.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp45",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 62,
+          "sourcePaintOrder": 62,
+          "bboxPt": [
+            266.0,
+            650.0,
+            266.0,
+            674.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp46",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 63,
+          "sourcePaintOrder": 63,
+          "bboxPt": [
+            266.0,
+            626.0,
+            266.0,
+            650.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp47",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 64,
+          "sourcePaintOrder": 64,
+          "bboxPt": [
+            266.0,
+            602.0,
+            266.0,
+            626.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp48",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 65,
+          "sourcePaintOrder": 65,
+          "bboxPt": [
+            266.0,
+            576.0,
+            266.0,
+            602.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp49",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 66,
+          "sourcePaintOrder": 66,
+          "bboxPt": [
+            356.0,
+            674.0,
+            356.0,
+            700.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp50",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 67,
+          "sourcePaintOrder": 67,
+          "bboxPt": [
+            356.0,
+            650.0,
+            356.0,
+            674.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp51",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 68,
+          "sourcePaintOrder": 68,
+          "bboxPt": [
+            356.0,
+            626.0,
+            356.0,
+            650.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp52",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 69,
+          "sourcePaintOrder": 69,
+          "bboxPt": [
+            356.0,
+            602.0,
+            356.0,
+            626.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp53",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 70,
+          "sourcePaintOrder": 70,
+          "bboxPt": [
+            356.0,
+            576.0,
+            356.0,
+            602.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp54",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 71,
+          "sourcePaintOrder": 71,
+          "bboxPt": [
+            476.0,
+            674.0,
+            476.0,
+            700.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp55",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 72,
+          "sourcePaintOrder": 72,
+          "bboxPt": [
+            476.0,
+            650.0,
+            476.0,
+            674.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp56",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 73,
+          "sourcePaintOrder": 73,
+          "bboxPt": [
+            476.0,
+            626.0,
+            476.0,
+            650.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp57",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 74,
+          "sourcePaintOrder": 74,
+          "bboxPt": [
+            476.0,
+            602.0,
+            476.0,
+            626.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-shp58",
+          "type": "line",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 75,
+          "sourcePaintOrder": 75,
+          "bboxPt": [
+            476.0,
+            576.0,
+            476.0,
+            602.0
+          ],
+          "notes": [
+            "two-point open stroke",
+            "became part of table p1-tbl1"
+          ],
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-txt60",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 76,
+          "sourcePaintOrder": 76,
+          "bboxPt": [
+            62.0,
+            679.3,
+            99.28,
+            694.15
+          ],
+          "notes": [
+            "became part of table p1-tbl1"
+          ],
+          "textChars": 6,
+          "lines": 1,
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-txt61",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 82,
+          "sourcePaintOrder": 82,
+          "bboxPt": [
+            243.08,
+            679.3,
+            288.92,
+            694.15
+          ],
+          "notes": [
+            "became part of table p1-tbl1"
+          ],
+          "textChars": 7,
+          "lines": 1,
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-txt62",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 89,
+          "sourcePaintOrder": 89,
+          "bboxPt": [
+            362.0,
+            679.3,
+            396.23,
+            694.15
+          ],
+          "notes": [
+            "became part of table p1-tbl1"
+          ],
+          "textChars": 5,
+          "lines": 1,
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-txt63",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 94,
+          "sourcePaintOrder": 94,
+          "bboxPt": [
+            214.33,
+            655.0,
+            227.67,
+            668.5
+          ],
+          "notes": [
+            "became part of table p1-tbl1"
+          ],
+          "textChars": 2,
+          "lines": 1,
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-txt64",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 96,
+          "sourcePaintOrder": 96,
+          "bboxPt": [
+            304.33,
+            655.0,
+            317.67,
+            668.5
+          ],
+          "notes": [
+            "became part of table p1-tbl1"
+          ],
+          "textChars": 2,
+          "lines": 1,
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-txt65",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 98,
+          "sourcePaintOrder": 98,
+          "bboxPt": [
+            62.0,
+            618.3,
+            93.16,
+            633.15
+          ],
+          "notes": [
+            "became part of table p1-tbl1"
+          ],
+          "textChars": 4,
+          "lines": 1,
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-txt66",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 102,
+          "sourcePaintOrder": 102,
+          "bboxPt": [
+            234.98,
+            631.0,
+            260.0,
+            644.5
+          ],
+          "notes": [
+            "became part of table p1-tbl1"
+          ],
+          "textChars": 5,
+          "lines": 1,
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-txt67",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 107,
+          "sourcePaintOrder": 107,
+          "bboxPt": [
+            324.98,
+            631.0,
+            350.0,
+            644.5
+          ],
+          "notes": [
+            "became part of table p1-tbl1"
+          ],
+          "textChars": 5,
+          "lines": 1,
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-txt68",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 112,
+          "sourcePaintOrder": 112,
+          "bboxPt": [
+            362.0,
+            631.0,
+            395.34,
+            644.5
+          ],
+          "notes": [
+            "became part of table p1-tbl1"
+          ],
+          "textChars": 7,
+          "lines": 1,
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-txt69",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 119,
+          "sourcePaintOrder": 119,
+          "bboxPt": [
+            243.32,
+            607.0,
+            260.0,
+            620.5
+          ],
+          "notes": [
+            "became part of table p1-tbl1"
+          ],
+          "textChars": 3,
+          "lines": 1,
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-txt70",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 122,
+          "sourcePaintOrder": 122,
+          "bboxPt": [
+            324.98,
+            607.0,
+            350.0,
+            620.5
+          ],
+          "notes": [
+            "became part of table p1-tbl1"
+          ],
+          "textChars": 5,
+          "lines": 1,
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-txt71",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 127,
+          "sourcePaintOrder": 127,
+          "bboxPt": [
+            362.0,
+            607.0,
+            389.24,
+            620.5
+          ],
+          "notes": [
+            "became part of table p1-tbl1"
+          ],
+          "textChars": 6,
+          "lines": 1,
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-txt72",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 133,
+          "sourcePaintOrder": 133,
+          "bboxPt": [
+            62.0,
+            581.3,
+            88.28,
+            596.15
+          ],
+          "notes": [
+            "became part of table p1-tbl1"
+          ],
+          "textChars": 5,
+          "lines": 1,
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-txt73",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 138,
+          "sourcePaintOrder": 138,
+          "bboxPt": [
+            234.98,
+            582.0,
+            260.0,
+            595.5
+          ],
+          "notes": [
+            "became part of table p1-tbl1"
+          ],
+          "textChars": 5,
+          "lines": 1,
+          "absorbedBy": "p1-tbl1"
+        },
+        {
+          "id": "p1-txt74",
+          "type": "text",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 143,
+          "sourcePaintOrder": 143,
+          "bboxPt": [
+            324.98,
+            582.0,
+            350.0,
+            595.5
+          ],
+          "notes": [
+            "became part of table p1-tbl1"
+          ],
+          "textChars": 5,
+          "lines": 1,
+          "absorbedBy": "p1-tbl1"
+        }
+      ]
     }
   ]
 }

@@ -11,7 +11,7 @@
   },
   "output": {
     "path": "/home/user/PDF_TO_editable_PPT/samples/encrypted.pptx",
-    "sha256": "9440f3fafef34063e01b8199dbaaa6d89bfdf536077bf9b54183ff34d4296402"
+    "sha256": "5914df7c932be99fe3e718837f80ee8c93d8ffbd5ba4d407d0d1633b980a63f3"
   },
   "options": {
     "mode": "fidelity",
@@ -25,6 +25,7 @@
   "summary": {
     "pages": 1,
     "elements": 1,
+    "absorbedElements": 0,
     "byOutcome": {
       "native": 1
     },

@@ -416,8 +416,6 @@ def _grid_to_table(
 
     for rule in grid.h_rules + grid.v_rules:
         consumed.append(rule.element)
-    for el in consumed:
-        el.consumed = True
 
     content = TableContent(
         rows=n_rows,
@@ -440,6 +438,10 @@ def _grid_to_table(
         "lattice table: %d x %d, %.0f%% of cell edges backed by drawn rules"
         % (n_rows, n_cols, coverage * 100)
     )
+    for el in consumed:
+        el.consumed = True
+        el.absorbed_by = element.id
+        el.note("became part of table %s" % element.id)
     return element
 
 

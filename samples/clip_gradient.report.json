@@ -11,7 +11,7 @@
   },
   "output": {
     "path": "/home/user/PDF_TO_editable_PPT/samples/clip_gradient.pptx",
-    "sha256": "36a36cf980d2ec2839490ffece057f2c45d98befacd8088b6da32903e231c420"
+    "sha256": "e5bedc2c6d975454d1f6131b07c20a470293764dfb005885a440bebb7e73bcba"
   },
   "options": {
     "mode": "fidelity",
@@ -25,6 +25,7 @@
   "summary": {
     "pages": 1,
     "elements": 4,
+    "absorbedElements": 1,
     "byOutcome": {
       "native": 1,
       "raster-fallback": 3
@@ -172,7 +173,28 @@
           "height": 1651.0
         },
         "dpi": 150.0
-      }
+      },
+      "absorbed": [
+        {
+          "id": "p1-shp2",
+          "type": "vectorFallback",
+          "outcome": "raster-fallback",
+          "confidence": 0.3,
+          "zIndex": 24,
+          "sourcePaintOrder": 24,
+          "bboxPt": [
+            170.0,
+            520.0,
+            250.0,
+            680.0
+          ],
+          "fallbackReason": "the path is clipped; a native shape would paint outside the source's clip region",
+          "notes": [
+            "covered by fallback region p1-shp1"
+          ],
+          "absorbedBy": "p1-shp1"
+        }
+      ]
     }
   ]
 }
