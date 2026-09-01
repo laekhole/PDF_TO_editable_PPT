@@ -21,7 +21,7 @@ Korean fixtures need a Korean TrueType font (`fonts-nanum` or
 `fonts-noto-cjk`); without one the fixture generator falls back to the base-14
 fonts and the Korean assertions will fail rather than quietly test nothing.
 
-Last full run on this machine: **171 passed in 96 s** (Linux x86-64,
+Last full run on this machine: **172 passed in 93 s** (Linux x86-64,
 Python 3.11.15, LibreOffice 24.2, Impress + Nanum fonts installed).
 
 ## What each layer covers
@@ -33,7 +33,7 @@ Python 3.11.15, LibreOffice 24.2, Impress + Nanum fonts installed).
 | `test_analyze.py` | 23 | line/rect/rotated-rect/ellipse/roundRect/freeform classification, the refusal to force a preset, multi-subpath handling, character loss, Korean+Latin spacing, multi-run lines, rotated text angle and point size, alignment inference, column splitting, baseline placement, line pitch, table grid, merges, per-edge borders, cell fills, cell text assignment, the refusal to invent a borderless table |
 | `test_build.py` | 23 | alpha emission, dash preset round-tripping, rotation sign, control-character stripping, `custGeom` segment types and local coordinates, multi-subpath paths, per-edge `a:lnL/R/T/B`, merge flags, the no-grid table style, package shape, slide size, letterboxing, spTree order, JPEG-in-package, no inherited placeholders |
 | `test_editability.py` | 17 | **mutation tests** — see below |
-| `test_integration.py` | 33 | page→slide mapping, page selection, every element type produced, the non-destructive rules, the report's completeness, behaviour without a renderer, the CLI and its exit codes, no network access |
+| `test_integration.py` | 34 | page→slide mapping, page selection, every element type produced, the non-destructive rules, the report's completeness, behaviour without a renderer, the CLI and its exit codes, no network access |
 | `test_visual.py` | 14 | per-page perceptual comparison for six fixtures, every page of the multi-page fixtures, fallback pixel fidelity, scan fidelity, z-order in the overlap block, image colour drift, **and two negative controls** |
 | `test_roundtrip.py` | 5 | PPTX → PDF → PPTX against a deck whose contents are known exactly |
 | `test_report_schema.py` | 14 | every report validates against `docs/report-schema.json`; the schema rejects a fallback with its reason removed; absorbed objects point at a live object on the same page |

@@ -333,3 +333,31 @@ def test_the_tool_makes_no_network_calls(tmp_path, monkeypatch):
         options=ConvertOptions(verify=False),
     )
     assert offline.document.pages
+
+
+def test_font_map_reaches_the_slide(tmp_path):
+    """The font map is the main knob for real documents; check it end to end."""
+    import re
+    import zipfile
+
+    mapping = tmp_path / "fonts.map"
+    mapping.write_text("nanumgothic = Malgun Gothic\n", encoding="utf-8")
+    plain = tmp_path / "plain.pptx"
+    mapped = tmp_path / "mapped.pptx"
+    for out, args in ((plain, []), (mapped, ["--font-map", str(mapping)])):
+        assert (
+            main(
+                [fixture_path("text_mixed"), "-o", str(out), "--mode", "fast", "-q"]
+                + args
+            )
+            == 0
+        )
+
+    def typefaces(path):
+        xml = zipfile.ZipFile(path).read("ppt/slides/slide1.xml").decode("utf-8")
+        return set(re.findall(r'<a:latin typeface="([^"]+)"', xml))
+
+    before, after = typefaces(plain), typefaces(mapped)
+    assert "Malgun Gothic" not in before
+    assert "Malgun Gothic" in after
+    assert not {t for t in after if t.lower().startswith("nanum")}
