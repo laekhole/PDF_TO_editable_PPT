@@ -159,7 +159,7 @@ Numbers and the metric table are in `docs/testing.md`.
 
 ## Status
 
-Verified: 157 automated tests pass, including editability mutation tests,
+Verified: 171 automated tests pass, including editability mutation tests,
 visual regression against the source, and a PPTX → PDF → PPTX round trip.
 
 **Not verified: Microsoft PowerPoint has never opened a file this tool

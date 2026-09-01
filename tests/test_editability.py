@@ -189,20 +189,47 @@ def test_picture_can_be_replaced_keeping_its_frame(conversions):
     assert swapped.image.size == (60, 40)
 
 
-def test_pictures_keep_their_aspect_ratio(conversions):
+def test_pictures_keep_the_source_placement_aspect_ratio(conversions):
+    """Whatever shape the PDF gave a picture, the slide gives it the same one.
+
+    Comparing against the bitmap's pixel dimensions would be wrong -- the
+    fixture stretches one placement on purpose, and reproducing that stretch is
+    correct.  What must never change is the ratio the *source page* used.
+    """
+    import math
+
     result = conversions.get("images")
     prs = Presentation(result.output_path)
-    checked = 0
+    placements = {
+        el.id: el
+        for page in result.document.pages
+        for el in page.elements
+        if el.type.value == "image" and not el.consumed
+    }
+    assert len(placements) >= 5
+
+    by_shape = {}
     for shape in prs.slides[0].shapes:
         if shape.shape_type != 13:
             continue
-        # The stretched placement in the fixture is deliberately non-uniform;
-        # every other picture must match its source aspect ratio.
-        native = shape.image.size
-        if native[0] == 0 or native[1] == 0:
-            continue
-        checked += 1
-    assert checked >= 3
+        by_shape[shape.name.split()[-1]] = shape
+    assert by_shape
+
+    for element_id, element in placements.items():
+        shape = by_shape.get(element_id)
+        assert shape is not None, "picture %s reached the slide" % element_id
+        a, b, c, d = element.transform[:4]
+        source_ratio = math.hypot(a, b) / max(1e-9, math.hypot(c, d))
+        crop = element.content.crop
+        if crop:
+            # A crop shrinks the frame; the ratio of what is left is what the
+            # slide has to reproduce.
+            left, top, right, bottom = crop
+            source_ratio *= (1.0 - left - right) / max(1e-9, 1.0 - top - bottom)
+        placed_ratio = shape.width / max(1, shape.height)
+        assert abs(placed_ratio - source_ratio) / source_ratio < 0.01, (
+            "%s: source %.4f, slide %.4f" % (element_id, source_ratio, placed_ratio)
+        )
 
 
 # ── tables ──────────────────────────────────────────────────────────────────

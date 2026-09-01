@@ -21,7 +21,7 @@ Korean fixtures need a Korean TrueType font (`fonts-nanum` or
 `fonts-noto-cjk`); without one the fixture generator falls back to the base-14
 fonts and the Korean assertions will fail rather than quietly test nothing.
 
-Last full run on this machine: **157 passed in 90 s** (Linux x86-64,
+Last full run on this machine: **171 passed in 96 s** (Linux x86-64,
 Python 3.11.15, LibreOffice 24.2, Impress + Nanum fonts installed).
 
 ## What each layer covers
@@ -36,6 +36,7 @@ Python 3.11.15, LibreOffice 24.2, Impress + Nanum fonts installed).
 | `test_integration.py` | 33 | page→slide mapping, page selection, every element type produced, the non-destructive rules, the report's completeness, behaviour without a renderer, the CLI and its exit codes, no network access |
 | `test_visual.py` | 14 | per-page perceptual comparison for six fixtures, every page of the multi-page fixtures, fallback pixel fidelity, scan fidelity, z-order in the overlap block, image colour drift, **and two negative controls** |
 | `test_roundtrip.py` | 5 | PPTX → PDF → PPTX against a deck whose contents are known exactly |
+| `test_report_schema.py` | 14 | every report validates against `docs/report-schema.json`; the schema rejects a fallback with its reason removed; absorbed objects point at a live object on the same page |
 
 ## Editability tests
 
@@ -54,6 +55,9 @@ would change, saves, reopens, and asserts the change stuck.
 - picture crop changed
 - a source clip present as `a:srcRect`
 - a picture's image replaced while its frame stays put
+- every picture's placed aspect ratio matches the ratio the source page used,
+  crop included (not the bitmap's pixel ratio — the fixture stretches one
+  placement on purpose and reproducing that stretch is correct)
 - a native `a:tbl` with the right row and column count
 - cell text, cell fill and a new merge applied and re-read
 - existing merges readable through PowerPoint's own `span_width` /
