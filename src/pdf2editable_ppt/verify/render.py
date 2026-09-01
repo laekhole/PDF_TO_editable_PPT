@@ -13,8 +13,7 @@ import os
 import shutil
 import subprocess
 import tempfile
-from dataclasses import dataclass
-from typing import List, Optional, Sequence
+from typing import List, Optional
 
 from PIL import Image
 

@@ -6,12 +6,12 @@
   },
   "source": {
     "path": "/home/user/PDF_TO_editable_PPT/fixtures/pdf/encrypted.pdf",
-    "sha256": "94abd8e20f15f96bdd4961326c4e7a49db28ea95c62d261e05fe31958449fe3f",
+    "sha256": "bb79302bf130547cb338cb48a10b4c48d7fd9a88a30ffcf5ebd48902c28614e7",
     "pages": 1
   },
   "output": {
     "path": "/home/user/PDF_TO_editable_PPT/samples/encrypted.pptx",
-    "sha256": "2d91cfea91357cd8709ece10cad9894c8e6e0e00dc7f0cf1cd498fa1ed37796a"
+    "sha256": "9440f3fafef34063e01b8199dbaaa6d89bfdf536077bf9b54183ff34d4296402"
   },
   "options": {
     "mode": "fidelity",

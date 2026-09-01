@@ -6,12 +6,12 @@
   },
   "source": {
     "path": "/home/user/PDF_TO_editable_PPT/fixtures/pdf/dense_vector.pdf",
-    "sha256": "0511d2fed1239fdcead83fca1eeda6deb3f0e91ecfc410ded3cb3e7fb9c9cf02",
+    "sha256": "853d4a016c37fac45e7f0ac68da0735b656ab4e728d2a393f0af31e6d7df882d",
     "pages": 1
   },
   "output": {
     "path": "/home/user/PDF_TO_editable_PPT/samples/dense_vector.pptx",
-    "sha256": "c9adb5c9c99f3c5d6568a0539995707ed8b8afe19259b9c38d9eaf9c8a616f25"
+    "sha256": "692eb53756b3e00208f44424c89dabf12ee607c8c8d4bd89180e2e8edc8461d2"
   },
   "options": {
     "mode": "fidelity",

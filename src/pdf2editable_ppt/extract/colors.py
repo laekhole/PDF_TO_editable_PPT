@@ -7,7 +7,7 @@ the number of components as the only signal for untyped spaces.
 
 from __future__ import annotations
 
-from typing import Any, Optional, Sequence
+from typing import Any, Optional
 
 
 def _clamp01(v: float) -> float:

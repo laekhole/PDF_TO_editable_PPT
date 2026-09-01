@@ -10,8 +10,7 @@ from __future__ import annotations
 
 import hashlib
 import io
-import zlib
-from typing import Any, Optional, Tuple
+from typing import Any, Optional
 
 from PIL import Image
 

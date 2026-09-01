@@ -1,7 +1,5 @@
 """Coordinate arithmetic: the layer everything else trusts."""
 
-import math
-
 import pytest
 
 from pdf2editable_ppt.units import (

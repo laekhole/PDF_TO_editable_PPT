@@ -6,12 +6,12 @@
   },
   "source": {
     "path": "/home/user/PDF_TO_editable_PPT/fixtures/pdf/mixed_sizes.pdf",
-    "sha256": "32bfa10ddf306367e051cbdb834caa4bcd2cc13c47ddc69272f75d7561459c2d",
+    "sha256": "562e3ea0cf1eabbc254ba69c09d70418275760a4315a63a3e6921ac3c0cbbd31",
     "pages": 3
   },
   "output": {
     "path": "/home/user/PDF_TO_editable_PPT/samples/mixed_sizes.pptx",
-    "sha256": "afaebfb2d4a80a517fa8d8968d11d9b5ab2f5f02ed2015bf9e4a0e6bd5519362"
+    "sha256": "ad1d5888352015d5c89ad67bb1814985e174831a9672e0e63a4cccbb916aa33b"
   },
   "options": {
     "mode": "fidelity",

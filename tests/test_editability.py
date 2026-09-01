@@ -9,7 +9,6 @@ native object no matter what the XML calls it.
 import io
 import zipfile
 
-import pytest
 from lxml import etree
 from pptx import Presentation
 from pptx.util import Emu, Pt
@@ -193,7 +192,6 @@ def test_picture_can_be_replaced_keeping_its_frame(conversions):
 def test_pictures_keep_their_aspect_ratio(conversions):
     result = conversions.get("images")
     prs = Presentation(result.output_path)
-    assets = result.document.assets
     checked = 0
     for shape in prs.slides[0].shapes:
         if shape.shape_type != 13:

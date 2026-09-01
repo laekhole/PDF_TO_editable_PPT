@@ -2,12 +2,10 @@
 
 import json
 import os
-import subprocess
-import sys
 
 import pytest
 
-from conftest import ARTIFACT_DIR, ROOT, fixture_path
+from conftest import ARTIFACT_DIR, fixture_path
 from pdf2editable_ppt.cli import main, parse_pages
 from pdf2editable_ppt.converter import convert
 from pdf2editable_ppt.ir import ElementType, Outcome
@@ -229,8 +227,8 @@ def test_without_a_renderer_nothing_claims_to_be_verified(conversions, monkeypat
     assert any("renderer" in w for w in result.report["warnings"])
 
 
-def test_report_json_is_valid_and_utf8(conversions, tmp_path):
-    result = conversions.get("text_mixed", verify=True)
+def test_report_json_is_valid_and_utf8(conversions):
+    conversions.get("text_mixed", verify=True)
     path = os.path.join(ARTIFACT_DIR, "text_mixed.verified.report.json")
     with open(path, encoding="utf-8") as fh:
         data = json.load(fh)
@@ -329,9 +327,9 @@ def test_the_tool_makes_no_network_calls(tmp_path, monkeypatch):
 
     monkeypatch.setattr(socket.socket, "connect", refuse)
     monkeypatch.setattr(socket, "create_connection", refuse)
-    result = convert(
+    offline = convert(
         fixture_path("shapes"),
         str(tmp_path / "offline.pptx"),
         options=ConvertOptions(verify=False),
     )
-    assert result.document.pages
+    assert offline.document.pages

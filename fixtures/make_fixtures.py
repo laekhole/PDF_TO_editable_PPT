@@ -14,14 +14,12 @@ fixtures, a Korean TrueType font on the system (NanumGothic or Noto Sans CJK).
 from __future__ import annotations
 
 import os
-import subprocess
 import sys
-from typing import List, Optional, Tuple
+from typing import List, Tuple
 
 from PIL import Image
 from reportlab.lib.colors import Color, HexColor
 from reportlab.lib.pagesizes import A4, LETTER, landscape
-from reportlab.lib.units import mm
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfgen import canvas
@@ -686,15 +684,6 @@ def fx_damaged_page(path: str) -> dict:
     with open(path, "wb") as fh:
         fh.write(bytes(data))
     return {"pages": 2, "damaged_page": 2}
-
-
-def fx_corrupt(path: str, source: str) -> dict:
-    """A badly truncated PDF: the tool must fail cleanly, not crash."""
-    with open(source, "rb") as fh:
-        data = fh.read()
-    with open(path, "wb") as fh:
-        fh.write(data[: int(len(data) * 0.55)])
-    return {"corrupt": True}
 
 
 def fx_dense_vector(path: str) -> dict:

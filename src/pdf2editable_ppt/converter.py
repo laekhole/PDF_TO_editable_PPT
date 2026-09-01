@@ -13,9 +13,7 @@ from __future__ import annotations
 
 import hashlib
 import io
-import os
 import tempfile
-from dataclasses import asdict
 from typing import Dict, List, Optional, Sequence, Tuple
 
 from PIL import Image
@@ -35,7 +33,7 @@ from .ir import (
 )
 from .pipeline import ConvertOptions, apply_vector_budget, build_page
 from .report import ReportBuilder, write_report
-from .units import Rect, union_all
+from .units import Rect
 from .verify import compare as cmpmod
 from .verify import render as rendermod
 
@@ -541,7 +539,6 @@ def _crop(
 
 def _text_integrity(raw_pages, document: Document) -> Dict:
     """Compare the source's characters with what the deck actually carries."""
-    source_chars = 0
     source_text: List[str] = []
     for raw in raw_pages:
         for c in sorted(raw.chars, key=lambda c: c.paint_order):

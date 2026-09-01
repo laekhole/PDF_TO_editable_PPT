@@ -16,7 +16,6 @@ from .converter import convert
 from .extract.content import PasswordRequired, UnparseableDocument
 from .extract.fonts import load_substitutions
 from .pipeline import ConvertOptions, VECTOR_BUDGET_PER_PAGE
-from .report import write_report
 
 
 def parse_pages(spec: Optional[str], total: Optional[int] = None) -> Optional[List[int]]:

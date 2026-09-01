@@ -13,11 +13,10 @@ from dataclasses import dataclass
 from typing import Dict, List, Optional, Sequence, Tuple
 
 from .analyze import shapes as shapemod
-from .analyze import tables as tablemod
-from .analyze.text import TextBlock, build_text_blocks
-from .extract.content import CharRecord, ImageRecord, PathRecord, RawPage
+from .analyze.tables import RULE_MAX_THICKNESS_PT
+from .analyze.text import build_text_blocks
+from .extract.content import PathRecord, RawPage
 from .ir import (
-    Document,
     Element,
     ElementType,
     ImageAsset,
@@ -25,17 +24,9 @@ from .ir import (
     Outcome,
     Page,
     Path,
-    Segment,
     Style,
 )
-from .units import (
-    Matrix,
-    PageGeometry,
-    Rect,
-    apply_matrix,
-    matrix_rotation_deg,
-    rect_from_points,
-)
+from .units import Matrix, PageGeometry, Rect, apply_matrix, rect_from_points
 
 # A page with no text and one image covering at least this share of it is a scan.
 SCAN_IMAGE_COVER = 0.7
@@ -167,8 +158,8 @@ def _map_oriented(
     return frame, angle, _rotated_aabb(frame, angle)
 
 
-# A drawn rule is at most this thick and at least this long.
-RULE_MAX_THICKNESS_PT = 3.0
+# A drawn rule is at least this long; its maximum thickness is the table
+# analyser's, so the two stages agree on what counts as a ruling.
 RULE_MIN_LENGTH_PT = 6.0
 
 
@@ -280,7 +271,6 @@ def build_page(
     warnings: List[str],
 ) -> Page:
     geom = _visualizer(raw)
-    rot_offset = _rotation_offset(geom)
     page = Page(
         index=raw.index,
         width_pt=geom.visual_width,

@@ -6,12 +6,12 @@
   },
   "source": {
     "path": "/home/user/PDF_TO_editable_PPT/fixtures/pdf/rotated_pages.pdf",
-    "sha256": "3acfecc79441e47ba598d67aef5972b0b30dacdc754a7bcdca41cf9b07c91f04",
+    "sha256": "5bb3e9cd158475edc7df14f54582b8848e619a0c1d7c2eecbcb098fbedc91901",
     "pages": 2
   },
   "output": {
     "path": "/home/user/PDF_TO_editable_PPT/samples/rotated_pages.pptx",
-    "sha256": "c298fb6945d509bf9228e4753560cbc82c2701d6ca2a9c49ad3261d58253de9e"
+    "sha256": "d8af8acbad285e59fa7c6858e1e193e0f91248019b48167af680f7d091df530e"
   },
   "options": {
     "mode": "fidelity",

@@ -1,10 +1,13 @@
 # Reproducible dependency pins. Regenerate with:
 #   python -m venv .venv && .venv/bin/pip install -e '.[dev]' && .venv/bin/pip freeze > constraints.txt
 # Verified on Python 3.11 / linux-x86_64.
+attrs==26.1.0
 cffi==2.1.1
 charset-normalizer==3.5.1
 cryptography==50.0.1
 iniconfig==2.3.0
+jsonschema==4.26.0
+jsonschema-specifications==2025.9.1
 lxml==6.1.2
 numpy==2.4.6
 packaging==26.3
@@ -17,6 +20,8 @@ Pygments==2.21.0
 pypdfium2==5.13.0
 pytest==9.1.1
 python-pptx==1.0.2
+referencing==0.37.0
 reportlab==5.0.1
+rpds-py==2026.6.3
 typing_extensions==4.16.0
 xlsxwriter==3.2.9

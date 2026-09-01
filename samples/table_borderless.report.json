@@ -6,12 +6,12 @@
   },
   "source": {
     "path": "/home/user/PDF_TO_editable_PPT/fixtures/pdf/table_borderless.pdf",
-    "sha256": "c75613726f7a65d4a9ab9276bdebbad648e9c5049150dc3246e924aa98eceb5c",
+    "sha256": "6edf2184dca9a82357169c512f23e9c0e1ea86d73f9acb2d9441261a463daf03",
     "pages": 1
   },
   "output": {
     "path": "/home/user/PDF_TO_editable_PPT/samples/table_borderless.pptx",
-    "sha256": "bd92fb6428ae0fcf56c13ed6b0a765ee4f92f82277c9bf5eddade4f7616600bf"
+    "sha256": "798733603f09fd7f6a70789547ba68441ab96e3f68bd72d687c5ca94dcd091f4"
   },
   "options": {
     "mode": "fidelity",

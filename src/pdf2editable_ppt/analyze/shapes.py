@@ -235,7 +235,6 @@ def _match_ellipse(sub: Subpath, bbox: Rect) -> Optional[ShapeMatch]:
 
 def _match_round_rect(sub: Subpath, bbox: Rect) -> Optional[ShapeMatch]:
     """Four straight edges joined by four equal quarter-arc corners."""
-    ops = [s.op for s in sub.segments if s.op is not SegmentOp.CLOSE]
     cubics = [s for s in sub.segments if s.op is SegmentOp.CUBIC_TO]
     lines = [s for s in sub.segments if s.op is SegmentOp.LINE_TO]
     if len(cubics) != 4 or not (3 <= len(lines) <= 5):

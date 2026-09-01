@@ -6,12 +6,12 @@
   },
   "source": {
     "path": "/home/user/PDF_TO_editable_PPT/fixtures/pdf/shapes.pdf",
-    "sha256": "5f74501f55003d70242efc8d40278654402e5bd9cd06f1918fd2add2594ec892",
+    "sha256": "52fce24da90b3f293a246d05be885570a3b58ba4fc4da7f9da47294206285ad8",
     "pages": 1
   },
   "output": {
     "path": "/home/user/PDF_TO_editable_PPT/samples/shapes.pptx",
-    "sha256": "ab1b9596913037bda85f952afe5ebb33421949b0559ec16d1f92cdef72e5637e"
+    "sha256": "076d5ee5689bb0466568a7316d758a5c8fe4866696525ff81ff4a77ddd9fb543"
   },
   "options": {
     "mode": "fidelity",

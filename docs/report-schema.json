@@ -1,0 +1,243 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/pdf2editable-ppt/report-schema.json",
+  "title": "pdf2editable-ppt conversion report",
+  "description": "What every object in the source PDF became in the produced deck, and why. A conversion that cannot rebuild something natively must say so here.",
+  "type": "object",
+  "required": ["schemaVersion", "tool", "source", "output", "options", "summary", "warnings", "assets", "pages"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "type": "string", "const": "1.0" },
+    "tool": {
+      "type": "object",
+      "required": ["name", "version"],
+      "properties": {
+        "name": { "type": "string" },
+        "version": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "source": {
+      "type": "object",
+      "required": ["path", "sha256", "pages"],
+      "properties": {
+        "path": { "type": "string" },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "pages": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "output": {
+      "type": "object",
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": { "type": "string" },
+        "sha256": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "options": {
+      "type": "object",
+      "description": "The options the conversion actually ran with.",
+      "properties": {
+        "mode": { "type": "string", "enum": ["fidelity", "fast"] },
+        "verify": { "type": "boolean" },
+        "dpi": { "type": "number" },
+        "fallbackDpi": { "type": "number" },
+        "vectorBudget": { "type": "integer" },
+        "detectTables": { "type": "boolean" },
+        "renderOnly": { "type": "boolean" },
+        "pages": {}
+      }
+    },
+    "summary": {
+      "type": "object",
+      "required": ["pages", "elements", "byOutcome"],
+      "properties": {
+        "pages": { "type": "integer", "minimum": 0 },
+        "elements": { "type": "integer", "minimum": 0 },
+        "byOutcome": {
+          "type": "object",
+          "description": "Count of live objects per outcome. Sums to `elements`.",
+          "additionalProperties": { "type": "integer", "minimum": 0 }
+        },
+        "imagesPassedThrough": {
+          "type": "integer",
+          "description": "Bitmaps whose original compressed stream was reused byte for byte."
+        },
+        "imagesReEncoded": {
+          "type": "integer",
+          "description": "Bitmaps decoded once and written as lossless PNG. Never a lossy re-encode."
+        },
+        "textIntegrity": {
+          "type": "object",
+          "description": "Whitespace-insensitive, NFC-normalised character counts. A difference is expected only where text was deliberately kept as a rendered region.",
+          "required": ["sourceChars", "outputChars", "identical"],
+          "properties": {
+            "sourceChars": { "type": "integer", "minimum": 0 },
+            "outputChars": { "type": "integer", "minimum": 0 },
+            "identical": { "type": "boolean" },
+            "textElementsRasterised": { "type": "integer", "minimum": 0 },
+            "note": { "type": "string" }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "description": "Document-level notes. A scan, a shape budget overrun, a missing renderer, or a page that still differs after repair all appear here.",
+      "items": { "type": "string" }
+    },
+    "assets": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/asset" }
+    },
+    "pages": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/page" }
+    }
+  },
+  "$defs": {
+    "outcome": {
+      "type": "string",
+      "description": "native: rebuilt and visually verified. native-with-warning: rebuilt but not verified (no renderer). svg-fallback: kept as vector artwork (not implemented yet). raster-fallback: this region is a render of the source. page-fallback: the whole page is a render of the source. unsupported: nothing could be emitted.",
+      "enum": ["native", "native-with-warning", "svg-fallback", "raster-fallback", "page-fallback", "unsupported"]
+    },
+    "bbox": {
+      "type": "array",
+      "description": "[x0, y0, x1, y1] in PDF points, y-up, origin at the bottom-left of the visually upright page.",
+      "items": { "type": "number" },
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "asset": {
+      "type": "object",
+      "required": ["assetId", "format", "widthPx", "heightPx", "passthrough", "outputSha256"],
+      "properties": {
+        "assetId": { "type": "string" },
+        "format": { "type": "string", "enum": ["jpg", "png"] },
+        "widthPx": { "type": "integer", "minimum": 1 },
+        "heightPx": { "type": "integer", "minimum": 1 },
+        "passthrough": {
+          "type": "boolean",
+          "description": "true when the PDF's own compressed stream was copied unchanged; sourceSha256 then equals outputSha256."
+        },
+        "sourceSha256": { "type": "string" },
+        "outputSha256": { "type": "string" },
+        "hasAlpha": { "type": "boolean" },
+        "note": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "verification": {
+      "type": "object",
+      "description": "Result of rendering the slide and comparing it against a render of the source page.",
+      "required": ["pass", "detail", "metrics"],
+      "properties": {
+        "pass": { "type": "boolean" },
+        "detail": { "type": "string" },
+        "dpi": { "type": "number" },
+        "afterRepair": {
+          "type": "boolean",
+          "description": "Present when this measurement was taken after the fallback repair round."
+        },
+        "metrics": {
+          "type": "object",
+          "properties": {
+            "ink_missing": { "type": "number", "description": "Share of painted source pixels with nothing painted over them." },
+            "ink_added": { "type": "number", "description": "Share of painted rebuilt pixels the source never painted." },
+            "edge_iou": { "type": "number", "description": "Overlap of the two edge maps. Catches shifted geometry." },
+            "mean_delta": { "type": "number", "description": "Mean per-channel colour difference over painted area, 0-255." },
+            "source_ink_ratio": { "type": "number" },
+            "width": { "type": "number" },
+            "height": { "type": "number" }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "element": {
+      "type": "object",
+      "required": ["id", "type", "outcome", "confidence", "zIndex", "sourcePaintOrder", "bboxPt"],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "outcome": { "enum": ["svg-fallback", "raster-fallback", "page-fallback", "unsupported"] }
+            },
+            "required": ["outcome"]
+          },
+          "then": { "required": ["fallbackReason"] }
+        }
+      ],
+      "properties": {
+        "id": { "type": "string" },
+        "type": {
+          "type": "string",
+          "enum": ["text", "image", "line", "rect", "ellipse", "freeform", "table", "group", "vectorFallback", "rasterFallback"]
+        },
+        "outcome": { "$ref": "#/$defs/outcome" },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "How certain the reconstruction was. For a table this is the share of cell edges backed by a drawn rule."
+        },
+        "zIndex": { "type": "integer" },
+        "sourcePaintOrder": { "type": "integer" },
+        "bboxPt": { "$ref": "#/$defs/bbox" },
+        "rotationDeg": { "type": "number" },
+        "opacity": { "type": "number", "minimum": 0, "maximum": 1 },
+        "assetId": { "type": "string" },
+        "fallbackReason": { "type": "string" },
+        "notes": { "type": "array", "items": { "type": "string" } },
+        "textChars": { "type": "integer", "minimum": 0 },
+        "lines": { "type": "integer", "minimum": 0 },
+        "segments": { "type": "integer", "minimum": 0 },
+        "hasCurves": { "type": "boolean" },
+        "table": {
+          "type": "object",
+          "properties": {
+            "rows": { "type": "integer", "minimum": 1 },
+            "cols": { "type": "integer", "minimum": 1 },
+            "mergedCells": { "type": "integer", "minimum": 0 }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "page": {
+      "type": "object",
+      "required": ["index", "pageNumber", "widthPt", "heightPt", "rotation", "scanned", "degraded", "elements"],
+      "properties": {
+        "index": { "type": "integer", "minimum": 0, "description": "0-based." },
+        "pageNumber": { "type": "integer", "minimum": 1, "description": "1-based, for humans." },
+        "widthPt": { "type": "number" },
+        "heightPt": { "type": "number" },
+        "rotation": { "type": "integer", "enum": [0, 90, 180, 270] },
+        "scanned": { "type": "boolean" },
+        "degraded": { "type": "boolean" },
+        "degradedReason": { "type": "string" },
+        "verification": { "$ref": "#/$defs/verification" },
+        "fallbackRegions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["scope", "reason"],
+            "properties": {
+              "scope": { "type": "string", "enum": ["element", "page"] },
+              "elementId": { "type": "string" },
+              "reason": { "type": "string" },
+              "bboxPt": { "$ref": "#/$defs/bbox" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "elements": { "type": "array", "items": { "$ref": "#/$defs/element" } }
+      },
+      "additionalProperties": false
+    }
+  }
+}

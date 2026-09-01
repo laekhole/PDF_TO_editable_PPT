@@ -14,7 +14,7 @@ import os
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
 
-from .ir import Document, Element, ElementType, Outcome, Page
+from .ir import Document, Element, ElementType, Page
 
 SCHEMA_VERSION = "1.0"
 

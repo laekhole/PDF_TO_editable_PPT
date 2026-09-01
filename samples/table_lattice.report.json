@@ -6,12 +6,12 @@
   },
   "source": {
     "path": "/home/user/PDF_TO_editable_PPT/fixtures/pdf/table_lattice.pdf",
-    "sha256": "8b68be06fa8638d84015a8bc1ca18809e16d1c1fc8951a4702f44eb05860f409",
+    "sha256": "075e0faeedab53f0102c9fd708caf6400eec8a03a4baa2c7f251563d61ea4495",
     "pages": 1
   },
   "output": {
     "path": "/home/user/PDF_TO_editable_PPT/samples/table_lattice.pptx",
-    "sha256": "15de9e20ff511d988648413cdee1e8d8857002b17f6e45097c02cdae723dc35b"
+    "sha256": "f57d092ac3692bc52fb1ec4fe86d2fa6b2c46930e8c082981d17404bc870446c"
   },
   "options": {
     "mode": "fidelity",

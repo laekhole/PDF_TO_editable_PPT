@@ -6,12 +6,12 @@
   },
   "source": {
     "path": "/home/user/PDF_TO_editable_PPT/fixtures/pdf/damaged_page.pdf",
-    "sha256": "0c6b6bc3d062579a48f3f86284326c59a08831f8340184c08defc89f669dec68",
+    "sha256": "e29e39af658d935866f70926ba004774a2dc323c69cfddb0a786b004bc51ea14",
     "pages": 2
   },
   "output": {
     "path": "/home/user/PDF_TO_editable_PPT/samples/damaged_page.pptx",
-    "sha256": "c7a015b7037e0aa067062a70af318951785b43ae7079f13cbb34e22a28208fd5"
+    "sha256": "5e79418425dbc6cc488e05091ba38b0cb61987cabe7bb1f0b1cc1a1c21af4464"
   },
   "options": {
     "mode": "fidelity",

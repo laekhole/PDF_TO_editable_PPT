@@ -6,12 +6,12 @@
   },
   "source": {
     "path": "/home/user/PDF_TO_editable_PPT/fixtures/pdf/clip_gradient.pdf",
-    "sha256": "eafe519c93975da4c281cd13e2ef0a1a9843450e658369c0011b37793b054cef",
+    "sha256": "9253b9599a3c4fe59efdf5974dffef646bd2e136ec326d1a830fd39ccaa9f2e2",
     "pages": 1
   },
   "output": {
     "path": "/home/user/PDF_TO_editable_PPT/samples/clip_gradient.pptx",
-    "sha256": "af6905da98a1cc1cd6bbc003400550073d55aa87cfed26163442163572e443fe"
+    "sha256": "36a36cf980d2ec2839490ffece057f2c45d98befacd8088b6da32903e231c420"
   },
   "options": {
     "mode": "fidelity",

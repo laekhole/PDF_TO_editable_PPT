@@ -20,7 +20,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8.0", "reportlab>=4.0"]
+dev = ["pytest>=8.0", "reportlab>=4.0", "jsonschema>=4.0"]
 
 [project.scripts]
 pdf2editable-ppt = "pdf2editable_ppt.cli:main"

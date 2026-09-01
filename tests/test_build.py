@@ -5,7 +5,6 @@ import zipfile
 import pytest
 from lxml import etree
 
-from conftest import ARTIFACT_DIR, fixture_path
 from pdf2editable_ppt.build import drawingml as dml
 from pdf2editable_ppt.build.pptx_writer import DeckWriter
 from pdf2editable_ppt.ir import (
@@ -13,7 +12,6 @@ from pdf2editable_ppt.ir import (
     Path,
     Segment,
     SegmentOp,
-    Style,
     TextContent,
     TextLine,
     TextRun,

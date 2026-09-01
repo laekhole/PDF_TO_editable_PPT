@@ -5,7 +5,7 @@ import math
 import pytest
 
 from conftest import fixture_path
-from pdf2editable_ppt.analyze.shapes import KAPPA, ShapeMatch, classify, split_subpaths
+from pdf2editable_ppt.analyze.shapes import KAPPA, classify, split_subpaths
 from pdf2editable_ppt.analyze.text import (
     DESCENT_EM,
     build_text_blocks,
