@@ -16,6 +16,7 @@ from .converter import convert
 from .extract.content import PasswordRequired, UnparseableDocument
 from .extract.fonts import load_substitutions
 from .pipeline import ConvertOptions, VECTOR_BUDGET_PER_PAGE
+from .report import write_report
 
 
 def parse_pages(spec: Optional[str], total: Optional[int] = None) -> Optional[List[int]]:
@@ -91,6 +92,36 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument(
         "--no-tables", action="store_true", help="do not rebuild ruled tables natively"
     )
+    p.add_argument(
+        "--ocr",
+        choices=("off", "experimental"),
+        default="off",
+        help=(
+            "experimental: run local OCR on scanned pages and write the text to a "
+            "SEPARATE draft deck (<output>.ocr.pptx) and sidecar (<output>.ocr.json). "
+            "The main deck is never changed by this."
+        ),
+    )
+    p.add_argument(
+        "--ocr-engine",
+        choices=("auto", "tesseract", "paddleocr"),
+        default="auto",
+        help="OCR engine; auto takes the first one that is installed",
+    )
+    p.add_argument(
+        "--ocr-lang",
+        default="kor+eng",
+        help="OCR languages, '+'-separated (Tesseract names), default kor+eng",
+    )
+    p.add_argument("--ocr-dpi", type=float, default=None, help="OCR render dpi (default 400)")
+    p.add_argument(
+        "--ocr-psm", type=int, default=None, help="Tesseract page segmentation mode (default 4)"
+    )
+    p.add_argument(
+        "--ocr-all-pages",
+        action="store_true",
+        help="OCR every page, not only the ones classified as scans",
+    )
     p.add_argument("-q", "--quiet", action="store_true", help="only print errors")
     return p
 
@@ -150,12 +181,57 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         print("error: conversion failed: %s: %s" % (type(exc).__name__, exc), file=sys.stderr)
         return 1
 
+    if args.ocr == "experimental":
+        from .converter import run_experimental_ocr
+
+        stem = os.path.splitext(args.output)[0]
+        ocr_summary = run_experimental_ocr(
+            result,
+            args.input,
+            stem + ".ocr.pptx",
+            stem + ".ocr.json",
+            engine_preference=args.ocr_engine,
+            languages=[t for t in args.ocr_lang.split("+") if t],
+            dpi=args.ocr_dpi,
+            psm=args.ocr_psm,
+            only_scanned=not args.ocr_all_pages,
+            password=args.password,
+        )
+        if args.report:
+            write_report(result.report, args.report)
+        if not args.quiet:
+            _print_ocr_summary(ocr_summary)
+
     if args.debug_assets:
         _write_debug_assets(result, args.debug_assets)
 
     if not args.quiet:
         _print_summary(result)
     return 0
+
+
+def _print_ocr_summary(summary) -> None:
+    if summary.get("error"):
+        print("ocr: %s" % summary["error"])
+        return
+    print("ocr (experimental, %s):" % summary["engine"])
+    for page in summary["pages"]:
+        print(
+            "  page %d: %d lines, %d chars, confidence %.0f/100, %d low-confidence, %d dropped"
+            % (
+                page["pageNumber"],
+                page["lines"],
+                page["characters"],
+                page["meanConfidence"],
+                page["lowConfidenceLines"],
+                page["droppedAsNoise"],
+            )
+        )
+    if summary.get("deck"):
+        print("  draft deck: %s" % summary["deck"])
+        print("  sidecar:    %s" % summary.get("sidecar"))
+    if not summary["pages"]:
+        print("  no scanned pages; nothing to OCR (use --ocr-all-pages to force)")
 
 
 def _print_summary(result) -> None:

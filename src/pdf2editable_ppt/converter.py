@@ -192,6 +192,103 @@ def _render_only_conversion(
     return ConversionResult(document, output_path, report)
 
 
+# ── experimental OCR ─────────────────────────────────────────────────────────
+
+
+def run_experimental_ocr(
+    result: ConversionResult,
+    pdf_path: str,
+    ocr_pptx_path: str,
+    ocr_json_path: Optional[str],
+    engine_preference: str = "auto",
+    languages: Sequence[str] = ("kor", "eng"),
+    dpi: Optional[float] = None,
+    psm: Optional[int] = None,
+    only_scanned: bool = True,
+    password: str = "",
+) -> Dict:
+    """Recognise text on scanned pages and write it to a separate deck.
+
+    The fidelity deck in ``result`` is not touched.  Returns a summary that is
+    also merged into the report under ``summary.ocr``.
+    """
+    import json
+
+    from . import ocr as ocrmod
+    from .build.ocr_deck import build_ocr_deck
+
+    engine = ocrmod.pick_engine(engine_preference)
+    summary: Dict = {
+        "experimental": True,
+        "engine": engine.name if engine else None,
+        "languages": list(languages),
+        "pages": [],
+        "note": (
+            "OCR output is a separate draft deck; the fidelity deck keeps the scan "
+            "unchanged. Text is a guess with a confidence, not a recovered source."
+        ),
+    }
+    if engine is None:
+        summary["error"] = (
+            "no local OCR engine is available (install tesseract-ocr with the "
+            "kor language data, or PaddleOCR with cached models)"
+        )
+        result.report["summary"]["ocr"] = summary
+        return summary
+    if psm is not None and isinstance(engine, ocrmod.TesseractEngine):
+        engine.psm = psm
+    use_dpi = dpi or ocrmod.DEFAULT_OCR_DPI
+
+    pages: List[ocrmod.OcrPage] = []
+    for page in result.document.pages:
+        if only_scanned and not page.scanned and not page.degraded:
+            continue
+        ocr_page = ocrmod.ocr_page(
+            pdf_path,
+            page.index,
+            page.width_pt,
+            page.height_pt,
+            engine,
+            languages=languages,
+            dpi=use_dpi,
+            password=password,
+        )
+        pages.append(ocr_page)
+        summary["pages"].append(
+            {
+                "pageNumber": page.index + 1,
+                "lines": len(ocr_page.lines),
+                "characters": sum(len(ln.text) for ln in ocr_page.lines),
+                "meanConfidence": round(ocr_page.mean_confidence(), 1),
+                "lowConfidenceLines": sum(
+                    1 for ln in ocr_page.lines if ln.confidence < ocrmod.LOW_CONFIDENCE
+                ),
+                "droppedAsNoise": len(ocr_page.dropped),
+            }
+        )
+    if pages:
+        build_ocr_deck(result.document, pages, ocr_pptx_path)
+        summary["deck"] = ocr_pptx_path
+    if ocr_json_path:
+        with open(ocr_json_path, "w", encoding="utf-8") as fh:
+            json.dump(
+                {
+                    "schemaVersion": "ocr-1.0",
+                    "experimental": True,
+                    "engine": engine.name,
+                    "dpi": use_dpi,
+                    "languages": list(languages),
+                    "pages": [ocrmod.page_to_dict(p) for p in pages],
+                },
+                fh,
+                indent=2,
+                ensure_ascii=False,
+            )
+        summary["sidecar"] = ocr_json_path
+    result.report["summary"]["ocr"] = summary
+    return summary
+
+
 # ── fallback materialisation ─────────────────────────────────────────────────
 
 

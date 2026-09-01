@@ -25,9 +25,9 @@ Everything runs locally. No network calls, no telemetry, no external service.
 | Clipped vectors | Rendered region, reported | **Fallback** |
 | Very dense vector artwork | Rendered region above a per-slide shape budget, reported | **Fallback** |
 | Scanned pages | Bitmap kept intact, no text invented over it | **Fallback by design** |
+| OCR for scans | `--ocr experimental`: local Tesseract reads the scan into a **separate** draft deck plus a JSON sidecar; the main deck is untouched. Korean CER 1.6 % on the ground-truth fixture; real scans are noisier | **Experimental** |
 | Charts | Editable lines, shapes and text. **Not** a native PowerPoint chart — the data does not exist in a PDF | **Partial, honestly** |
 | SmartArt, groups, themes, chart data, table styles | Not recoverable from a PDF by any tool | **Not supported** |
-| OCR for scans | **Not implemented** | **Not supported** |
 | SVG fallback | **Not implemented** — only raster fallback exists | **Not supported** |
 
 Read `docs/limitations.md` before trusting this with a document that matters.
@@ -63,6 +63,7 @@ pdf2editable-ppt input.pdf -o output.pptx --report output.report.json
 pdf2editable-ppt input.pdf -o output.pptx --pages 1-5
 pdf2editable-ppt input.pdf -o output.pptx --mode fidelity
 pdf2editable-ppt input.pdf -o output.pptx --debug-assets ./debug-assets
+pdf2editable-ppt scan.pdf  -o scan.pptx  --ocr experimental
 ```
 
 `--mode fidelity` is the default. It renders the produced deck, compares it
@@ -82,6 +83,11 @@ the source region.
 | `--vector-budget N` | native shapes per slide before vector art falls back (default 900) |
 | `--no-tables` | do not rebuild ruled tables natively |
 | `--debug-assets DIR` | dump extracted images and the report |
+| `--ocr {off,experimental}` | run local OCR on scanned pages into `<output>.ocr.pptx` + `<output>.ocr.json` (default off) |
+| `--ocr-engine {auto,tesseract,paddleocr}` | engine; `auto` takes the first one installed |
+| `--ocr-lang LANGS` | `+`-separated Tesseract languages (default `kor+eng`) |
+| `--ocr-dpi N` / `--ocr-psm N` | OCR render dpi (400) and Tesseract segmentation mode (4) |
+| `--ocr-all-pages` | OCR every page, not only the ones classified as scans |
 | `-q, --quiet` | errors only |
 
 Exit codes: `0` success · `1` conversion failed · `2` bad arguments ·
@@ -103,6 +109,32 @@ timesnewromanps = Times New Roman
 ```bash
 pdf2editable-ppt deck.pdf -o deck.pptx --font-map fonts.map
 ```
+
+### Experimental OCR
+
+A scanned page has no text to recover, only pixels. `--ocr experimental` runs
+**Tesseract locally** (nothing leaves the machine) and writes what it read to a
+*separate* draft deck: one slide per scanned page with editable text boxes at
+the positions the words were read from, on a blank background, low-confidence
+lines in red, and the full text with confidences in the speaker notes. A JSON
+sidecar carries every word, its box and its confidence, plus what was
+discarded as noise.
+
+The scan itself is never painted over, and the main deck is byte-for-byte the
+same with or without `--ocr`. The draft is a starting point for a person to
+correct, not a reconstruction of the page.
+
+Install the engine first:
+
+```bash
+sudo apt-get install -y tesseract-ocr tesseract-ocr-kor tesseract-ocr-eng
+```
+
+Measured on the ground-truth Korean scan fixture (`tools/ocr_benchmark.py`):
+character error rate **1.6 %** (whitespace ignored), word boundaries within
+±1 per line. Real scans with mixed graphics score lower; see `docs/testing.md`.
+PaddleOCR has an adapter but could not be evaluated here (its model hosts
+were unreachable), so it is unverified.
 
 ## The report
 
@@ -159,7 +191,7 @@ Numbers and the metric table are in `docs/testing.md`.
 
 ## Status
 
-Verified: 172 automated tests pass, including editability mutation tests,
+Verified: 186 automated tests pass, including editability mutation tests,
 visual regression against the source, and a PPTX → PDF → PPTX round trip.
 
 **Not verified: Microsoft PowerPoint has never opened a file this tool

@@ -21,7 +21,7 @@ Korean fixtures need a Korean TrueType font (`fonts-nanum` or
 `fonts-noto-cjk`); without one the fixture generator falls back to the base-14
 fonts and the Korean assertions will fail rather than quietly test nothing.
 
-Last full run on this machine: **172 passed in 93 s** (Linux x86-64,
+Last full run on this machine: **186 passed in 73 s** (Linux x86-64,
 Python 3.11.15, LibreOffice 24.2, Impress + Nanum fonts installed).
 
 ## What each layer covers
@@ -36,6 +36,7 @@ Python 3.11.15, LibreOffice 24.2, Impress + Nanum fonts installed).
 | `test_integration.py` | 34 | page→slide mapping, page selection, every element type produced, the non-destructive rules, the report's completeness, behaviour without a renderer, the CLI and its exit codes, no network access |
 | `test_visual.py` | 14 | per-page perceptual comparison for six fixtures, every page of the multi-page fixtures, fallback pixel fidelity, scan fidelity, z-order in the overlap block, image colour drift, **and two negative controls** |
 | `test_roundtrip.py` | 5 | PPTX → PDF → PPTX against a deck whose contents are known exactly |
+| `test_ocr.py` | 14 | CER metric, Hangul pitch-based word joining (syllable grid, narrow syllables, real spaces), column gutters, reading order, noise policy (long low-confidence kept, short dropped, all recorded), engine discovery; with Tesseract installed: **CER < 5 % on the ground-truth Korean scan**, word boundaries within ±1.5/line, the main deck unchanged by OCR, the draft deck's shape (no bitmap, banner, notes), the CLI flag and its default-off |
 | `test_report_schema.py` | 14 | every report validates against `docs/report-schema.json`; the schema rejects a fallback with its reason removed; absorbed objects point at a live object on the same page |
 
 ## Editability tests
@@ -171,6 +172,52 @@ absent). `test_analyze.py::test_text_box_is_placed_from_the_baseline` pins it.
 This is LibreOffice's layout. PowerPoint's descent for its own substituted font
 may differ slightly; the manual checklist below is how that gets confirmed.
 
+## OCR accuracy
+
+`fixtures/pdf/scanned_korean.pdf` is a typeset page (title, five lines of
+Korean and one of English, a three-row ruled table) rendered at 200 dpi,
+JPEG-compressed at quality 80, rotated 0.6° and speckled like a phone scan,
+then wrapped back into a PDF. Its exact text sits beside it in
+`scanned_korean.truth.txt`, so an engine is scored, not eyeballed:
+
+```bash
+.venv/bin/python tools/ocr_benchmark.py
+```
+
+Tesseract 5.3.4, `kor+eng`, on that fixture:
+
+| dpi | psm | words found | CER (whitespace ignored) |
+|---|---|---|---|
+| 300 | 3 (auto) | 73 | **0.633** — auto segmentation drops half the page |
+| 300 | 4 (single column, variable sizes) | 134 | 0.141 |
+| 300 | 11 (sparse text) | 138 | 0.169 |
+| 400 | 4 | 137 | 0.121 |
+| 400 | 11 | 148 | 0.129 |
+| 400 | 4, with the noise policy that keeps long low-confidence words | — | **0.016** |
+
+The last row is the shipped default. The jump from 0.121 to 0.016 is one
+line: `BOT(Build-Operate-Transfer)이며` came back at confidence 8 and was
+being discarded as noise; the policy now keeps a low-confidence word when it
+is long enough to be real text and only drops short marks.
+
+Word spacing is a separate problem from characters. Tesseract's Korean model
+boxes most syllables one at a time, and a narrow syllable leaves an ink gap
+inside a word as wide as a real space. Judging a space by the *pitch* between
+successive left edges (Hangul sits on a one-em grid; a space adds a third of
+an em) instead of by the ink gap brought the per-line space count from
+`[5,10,11,7,17,6,2,13,9,8]` to `[5,5,6,2,5,6,2,13,9,7]` against a truth of
+`[5,4,5,3,6,6,2,13,9,8]`.
+
+On the real six-page scanned proposal used during development (no ground
+truth), mean confidence per page was 88, 74, 86, 87, 87 and 85, with 2–23
+low-confidence lines and 33–110 discarded marks per page. Body text was
+readable; labels inside diagrams were the usual source of errors.
+
+**PaddleOCR was not scored.** It installed (3.7.0) but needs its models
+fetched once from Baidu, HuggingFace or ModelScope, and all three were
+unreachable from this environment. The benchmark script scores it
+automatically wherever the models are cached.
+
 ## What has NOT been tested
 
 **Microsoft PowerPoint has never opened a file this tool produced.** No Windows
@@ -216,7 +263,7 @@ rasterisation behind two functions, so the adapter slots in beside
 
 ## Other gaps in coverage
 
-- **OCR is not implemented**, so nothing tests it.
+- PaddleOCR has never run here; only Tesseract's numbers are real.
 - **SVG fallback is not implemented**, so nothing tests it.
 - RTL text, vertical CJK text, JBIG2/CCITT images, blend modes, transparency
   groups and annotation appearance streams have no fixtures.

@@ -705,6 +705,83 @@ def fx_dense_vector(path: str) -> dict:
     return {"expect_budget_fallback": True}
 
 
+SCANNED_KOREAN_TEXT = [
+    "고속도로 유휴부지 태양광 발전사업 안전관리 계획",
+    "한국도로공사가 보유한 성토부의 가용자산을 활용하여",
+    "신재생에너지 생산 및 전기 보급에 기여한다.",
+    "사업방식은 BOT(Build-Operate-Transfer)이며 설치용량은 10MW,",
+    "건설기간은 실시협약 체결 후 18개월, 운영기간은 20년이다.",
+    "Safety first: no work without a permit.",
+    "구분 사고유형 대책방안",
+    "풍수해 산사태 우수로 인한 토사 유출 및 사면 붕괴 배수로 정비 및 사면 보강",
+    "낙뢰 낙뢰로 인한 설비 손상 피뢰침 설치 및 접지 점검",
+    "화재 산불 연소 확산 소화기 비치 및 방화선 확보",
+]
+
+
+def fx_scanned_korean(path: str) -> dict:
+    """A photographed Korean page with known ground truth, for OCR scoring.
+
+    The text is typeset, rendered at 200 dpi, JPEG-compressed at a realistic
+    quality, slightly rotated and noised the way a phone scan is, and wrapped
+    back into a PDF as one bitmap per page.  The exact text is saved beside
+    it so an OCR engine's character error rate can be measured, not eyeballed.
+    """
+    import io
+    import random
+
+    import pypdfium2 as pdfium
+
+    typeset = path + ".typeset.pdf"
+    c = canvas.Canvas(typeset, pagesize=LETTER)
+    c.setTitle("scanned-korean")
+    y = 720.0
+    for i, line in enumerate(SCANNED_KOREAN_TEXT):
+        if i == 0:
+            c.setFont(KOREAN_BOLD, 18)
+            c.drawString(56, y, line)
+            y -= 34
+            continue
+        if i == 6:
+            y -= 12
+            c.setStrokeColorRGB(0.3, 0.3, 0.3)
+            c.setLineWidth(0.8)
+            c.line(56, y + 14, 556, y + 14)
+        c.setFont(KOREAN_BOLD if i == 6 else KOREAN_REGULAR, 12)
+        c.drawString(56, y, line)
+        y -= 22
+    c.save()
+
+    doc = pdfium.PdfDocument(typeset)
+    page_img = doc[0].render(scale=200 / 72.0).to_pil().convert("RGB")
+    doc.close()
+    os.remove(typeset)
+
+    rng = random.Random(7)
+    px = page_img.load()
+    w, h = page_img.size
+    for _ in range(w * h // 400):
+        x, y_ = rng.randrange(w), rng.randrange(h)
+        r, g, b = px[x, y_]
+        d = rng.randint(-18, 18)
+        px[x, y_] = (max(0, min(255, r + d)), max(0, min(255, g + d)), max(0, min(255, b + d)))
+    page_img = page_img.rotate(0.6, resample=Image.BICUBIC, fillcolor=(248, 247, 244))
+    buf = io.BytesIO()
+    page_img.save(buf, "JPEG", quality=80)
+    jpg = path + ".page.jpg"
+    with open(jpg, "wb") as fh:
+        fh.write(buf.getvalue())
+
+    c = canvas.Canvas(path, pagesize=LETTER)
+    c.setTitle("scanned-korean")
+    c.drawImage(jpg, 0, 0, width=612, height=792)
+    c.save()
+    os.remove(jpg)
+    with open(path[:-4] + ".truth.txt", "w", encoding="utf-8") as fh:
+        fh.write("\n".join(SCANNED_KOREAN_TEXT) + "\n")
+    return {"expect_scanned": True, "truth": SCANNED_KOREAN_TEXT}
+
+
 # ── driver ───────────────────────────────────────────────────────────────────
 
 
@@ -726,6 +803,7 @@ def build_all(outdir: str) -> dict:
     meta["chart"] = fx_chart(os.path.join(outdir, "chart.pdf"))
     meta["clip_gradient"] = fx_clip_gradient(os.path.join(outdir, "clip_gradient.pdf"))
     meta["scanned"] = fx_scanned(os.path.join(outdir, "scanned.pdf"), scan_png)
+    meta["scanned_korean"] = fx_scanned_korean(os.path.join(outdir, "scanned_korean.pdf"))
     meta["rotated_pages"] = fx_rotated_pages(os.path.join(outdir, "rotated_pages.pdf"))
     meta["mixed_sizes"] = fx_mixed_sizes(os.path.join(outdir, "mixed_sizes.pdf"))
     meta["encrypted"] = fx_encrypted(os.path.join(outdir, "encrypted.pdf"))

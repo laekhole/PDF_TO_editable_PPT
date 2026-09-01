@@ -55,6 +55,16 @@ Verify at any time with:
 If LibreOffice is ever **bundled** with a distribution of this tool, that is a
 different question and needs its own review.
 
+## OCR engines (optional, experimental mode only)
+
+| Component | Licence | How it is used | Obligation |
+|---|---|---|---|
+| **Tesseract** (`tesseract-ocr`, `tesseract-ocr-kor`, `tesseract-ocr-eng`) | Apache-2.0 | Invoked as a separate process through its CLI; never linked, never bundled | None beyond Apache-2.0 for the binary the operator installs. Language data is also Apache-2.0. |
+| **PaddleOCR** + **PaddlePaddle** | Apache-2.0 | Optional Python import, used only if present | Apache-2.0. Note: its first run downloads model weights from Baidu/HuggingFace/ModelScope — a one-time network fetch the operator should know about, and the only network activity anywhere near this tool. The weights carry their own (Apache-2.0) licence. |
+
+Neither engine is a runtime dependency of the package; `pyproject.toml` does
+not list them. OCR is off unless `--ocr experimental` is given.
+
 ## Fonts
 
 The converter **does not embed fonts** into the output. It writes font family

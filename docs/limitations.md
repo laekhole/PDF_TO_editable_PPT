@@ -111,14 +111,29 @@ in a separate, clearly-labelled output — it is not in this tool.
   cell will not re-wrap it the way it was originally authored.
 - Rotated tables are not detected.
 
-## Scanned pages
+## Scanned pages and OCR
 
-- A page detected as a scan keeps its bitmap unchanged and gains **no** text.
-- **OCR is not implemented.** The brief's OCR requirements — local-only engine,
-  Tesseract vs PaddleOCR comparison for Korean, no double-drawn text, no
-  inpainting, a separate experimental output — are described but nothing is
-  built. Neither engine is installed in this environment. Do not expect
-  searchable text from a scan.
+- A page detected as a scan keeps its bitmap unchanged and gains **no** text in
+  the main deck. Off by default, `--ocr experimental` writes a *separate* draft
+  deck; it never changes the main output.
+- **The OCR draft is a guess with a confidence, not recovered text.** On the
+  ground-truth fixture Tesseract reaches a 1.6 % character error rate; on the
+  real six-page scan tried during development, mean confidence ran 74–88 out of
+  100 and 2–23 lines per page were flagged low-confidence. Expect `0`/`O`
+  swaps, mangled mixed-script runs (`이며` → `0|F`), and a word boundary off by
+  one on some lines. Proof-read it.
+- The draft slide is text on a blank background. **Graphics, photos, tables
+  and colour are not reconstructed** — that is what the main deck is for.
+  Reading order inside dense infographics is approximate.
+- Text sizes on the draft are inferred from box heights and a substitute font
+  is used, so lines can run slightly long or short of where the scan's ink
+  ended.
+- Only Tesseract has been run. **PaddleOCR is wired up but unverified**: its
+  models must be downloaded once from Baidu/HuggingFace/ModelScope, and all
+  three hosts were unreachable from the development environment. The
+  Korean-accuracy comparison the brief asks for is therefore **not done**;
+  `tools/ocr_benchmark.py` runs it on any machine where both engines work.
+- No inpainting, ever. The scan's own glyphs are not removed or altered.
 
 ## Pages and documents
 

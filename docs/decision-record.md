@@ -239,3 +239,52 @@ both are still proofs rather than guesses.
 - Confidence is recorded per shape so a marginal recognition is visible.
 - `a:custGeom` cannot express an even-odd fill rule; the flag is kept in the IR
   and the limitation is documented.
+
+---
+
+## ADR-007 — OCR output is a separate draft deck, never an overlay
+
+**Date** 2026-09-01 · **Status** Accepted
+
+### Context
+
+A scanned page has no text objects, so the fidelity deck can only carry the
+bitmap. Users still want the words. The brief allows OCR under strict
+conditions: local engines only, no text painted over the scan's own glyphs, no
+inpainting, and a separate experimental output.
+
+### Decision
+
+`--ocr experimental` (off by default) runs Tesseract locally and writes a
+*second* deck, `<output>.ocr.pptx`: one slide per scanned page with editable
+text boxes at the positions the words were read from, on a **blank**
+background, low-confidence lines in red, and the full text plus confidences in
+the speaker notes. A JSON sidecar records every word, its box, its confidence
+and everything discarded as noise. The main deck is byte-identical with or
+without the flag.
+
+### Reasoning
+
+The two obvious alternatives both break a rule. Text over the scan shows every
+word twice. Invisible text under the scan (the "searchable PDF" trick) is
+selectable but not editable in any honest sense, and an operator reading the
+slide cannot see what the engine guessed. A blank draft slide makes the guess
+visible and correctable, and keeps the scan where it belongs.
+
+Tesseract was chosen because it ran; PaddleOCR could not fetch its models
+here. The default segmentation mode (psm 3) was replaced by psm 4 after the
+ground-truth fixture showed auto mode dropping half the words (CER 0.63 vs
+0.016). Word spacing uses the pitch between syllable boxes rather than the
+ink gap, because Tesseract boxes Hangul one syllable at a time and a narrow
+syllable's ink gap looks like a space.
+
+### Consequences
+
+- Nothing in the fidelity path depends on OCR; the feature can be removed
+  without touching it.
+- The draft loses all graphics, tables and colour by design. It is a text
+  source, not a slide.
+- Accuracy is a fixture number (1.6 % CER) until real documents are scored;
+  real infographic pages showed 74–88 mean confidence.
+- The Tesseract-vs-PaddleOCR comparison the brief asked for is still open.
+  `tools/ocr_benchmark.py` runs it on any machine where both work.

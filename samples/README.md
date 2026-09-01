@@ -6,7 +6,8 @@ Each `.pptx` here was produced from the matching PDF in `fixtures/pdf/` by:
 pdf2editable-ppt fixtures/pdf/<name>.pdf -o samples/<name>.pptx --report samples/<name>.report.json
 ```
 
-`encrypted.pptx` additionally needs `--password secret`. `corrupt.pdf` has no
+`encrypted.pptx` additionally needs `--password secret`, and `scanned_korean`
+was run with `--ocr experimental` as well. `corrupt.pdf` has no
 sample: it is damaged beyond what either the parser or the renderer can
 recover, and the tool exits with code 4 rather than writing a file.
 
@@ -25,6 +26,7 @@ it is not a native PowerPoint object, why. It validates against
 | `clip_gradient` | clipped vectors and an axial shading falling back to rendered regions, reported |
 | `dense_vector` | 1 200 shapes exceeding the per-slide budget, falling back to one region |
 | `scanned` | a full-page bitmap kept intact with no invented text |
+| `scanned_korean` | a photographed Korean page with known ground truth; `scanned_korean.pptx` keeps the bitmap, and `--ocr experimental` added `scanned_korean.ocr.pptx` (editable text draft, blank background) and `scanned_korean.ocr.json` (every word with its confidence) |
 | `rotated_pages` | `/Rotate 90` and `/Rotate 270` rebuilt natively |
 | `mixed_sizes` | A4 portrait, Letter landscape and a 300×400 page letterboxed into one deck |
 | `damaged_page` | page 1 native, page 2 unreadable and rendered, document not lost |

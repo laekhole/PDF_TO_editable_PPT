@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "1.0",
+  "tool": {
+    "name": "pdf2editable-ppt",
+    "version": "0.1.0"
+  },
+  "source": {
+    "path": "/home/user/PDF_TO_editable_PPT/fixtures/pdf/scanned_korean.pdf",
+    "sha256": "7657de68c4dcb79408f33cfd000708044578b71641e1526582a1f7fbb658f828",
+    "pages": 1
+  },
+  "output": {
+    "path": "/home/user/PDF_TO_editable_PPT/samples/scanned_korean.pptx",
+    "sha256": "0262a8af891598fb8c430e8950414d253fdfde59dfea7111660cbd4b38631bc9"
+  },
+  "options": {
+    "mode": "fidelity",
+    "verify": true,
+    "dpi": 150.0,
+    "fallbackDpi": 220.0,
+    "vectorBudget": 900,
+    "detectTables": true,
+    "pages": "all"
+  },
+  "summary": {
+    "pages": 1,
+    "elements": 1,
+    "absorbedElements": 0,
+    "byOutcome": {
+      "native": 1
+    },
+    "imagesPassedThrough": 1,
+    "imagesReEncoded": 0,
+    "textIntegrity": {
+      "sourceChars": 0,
+      "outputChars": 0,
+      "identical": true,
+      "textElementsRasterised": 0,
+      "note": "counts ignore whitespace and use NFC normalisation; a difference is expected only where text was deliberately kept as a rendered region"
+    },
+    "ocr": {
+      "experimental": true,
+      "engine": "tesseract",
+      "languages": [
+        "kor",
+        "eng"
+      ],
+      "pages": [
+        {
+          "pageNumber": 1,
+          "lines": 10,
+          "characters": 310,
+          "meanConfidence": 92.9,
+          "lowConfidenceLines": 0,
+          "droppedAsNoise": 0
+        }
+      ],
+      "note": "OCR output is a separate draft deck; the fidelity deck keeps the scan unchanged. Text is a guess with a confidence, not a recovered source.",
+      "deck": "samples/scanned_korean.ocr.pptx",
+      "sidecar": "samples/scanned_korean.ocr.json"
+    }
+  },
+  "warnings": [
+    "page 1 looks like a scan (a single bitmap covers 100% of the page and there are 0 text characters); the bitmap is kept intact and no text is invented over it"
+  ],
+  "assets": [
+    {
+      "assetId": "img0001",
+      "format": "jpg",
+      "widthPx": 1700,
+      "heightPx": 2200,
+      "passthrough": true,
+      "sourceSha256": "b12a61baf42b53774f53f3fe46c5fc8e0c31fd74a8530af40ea9e3c4c603a6ea",
+      "outputSha256": "b12a61baf42b53774f53f3fe46c5fc8e0c31fd74a8530af40ea9e3c4c603a6ea",
+      "hasAlpha": false,
+      "note": "original JPEG stream copied without re-encoding"
+    }
+  ],
+  "pages": [
+    {
+      "index": 0,
+      "pageNumber": 1,
+      "widthPt": 612.0,
+      "heightPt": 792.0,
+      "rotation": 0,
+      "scanned": true,
+      "degraded": false,
+      "elements": [
+        {
+          "id": "p1-img1",
+          "type": "image",
+          "outcome": "native",
+          "confidence": 1.0,
+          "zIndex": 1,
+          "sourcePaintOrder": 1,
+          "bboxPt": [
+            0.0,
+            0.0,
+            612.0,
+            792.0
+          ],
+          "assetId": "img0001",
+          "notes": [
+            "original JPG stream reused without re-encoding",
+            "scanned page: the source bitmap is placed unchanged, no text is reconstructed over it"
+          ]
+        }
+      ],
+      "verification": {
+        "pass": true,
+        "detail": "within tolerance",
+        "metrics": {
+          "ink_missing": 0.0,
+          "ink_added": 0.0,
+          "edge_iou": 0.87949,
+          "mean_delta": 9.22711,
+          "source_ink_ratio": 0.05208,
+          "width": 1275.0,
+          "height": 1651.0
+        },
+        "dpi": 150.0
+      }
+    }
+  ]
+}

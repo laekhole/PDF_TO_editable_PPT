@@ -186,6 +186,16 @@ stub (clip rectangles). Both are implemented in
 | LibreOffice-authored rects/ovals | extra collinear vertices and arc-subdivided ovals became freeforms | collinear anchors dropped; ellipse recognised by fitting anchors to the inscribed ellipse |
 | Text verification | glyph hinting differences read as 25 % missing ink | comparison blurs first and uses a separate text threshold profile |
 
+## 6. OCR engines (added for the experimental OCR mode)
+
+| Engine | Version | Licence | Ran? | Result |
+|---|---|---|---|---|
+| **Tesseract** (`tesseract-ocr` + `kor`, `eng` data) | 5.3.4 | Apache-2.0 | Yes | CER 0.016 on the ground-truth Korean scan with psm 4 at 400 dpi; the shipped default. Driven through the CLI's TSV output — no Python binding needed. |
+| **PaddleOCR** | 3.7.0 (paddlepaddle 3.3.1) | Apache-2.0 | **No** | Installs, but on first use fetches models from Baidu BOS, HuggingFace or ModelScope. All three returned nothing through this environment's proxy, so it never produced output. The adapter is in `src/pdf2editable_ppt/ocr.py`; `tools/ocr_benchmark.py` scores it wherever the models are cached. |
+
+The brief asked for a Korean accuracy comparison between the two. That
+comparison is **not done**; only Tesseract's number is real.
+
 ## What is still unverified
 
 - **Microsoft PowerPoint has not opened these files.** No Windows or macOS host
