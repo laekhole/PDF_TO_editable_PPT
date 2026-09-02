@@ -184,6 +184,19 @@ then wrapped back into a PDF. Its exact text sits beside it in
 .venv/bin/python tools/ocr_benchmark.py
 ```
 
+For a hands-off run that produces one file to hand to a reviewer -- every
+engine found, its score on the fixture, and how it did on a document of your
+own -- use the report script instead:
+
+```bash
+.venv/bin/python tools/ocr_report.py --pdf your-scan.pdf --out ocr-report.md
+```
+
+It writes a single Markdown file with the environment, the engine table, the
+truth compared line by line against each engine, and a sample of what each
+read from your document. An engine that is missing or whose models will not
+load is recorded as such and the run continues with the ones that work.
+
 Tesseract 5.3.4, `kor+eng`, on that fixture:
 
 | dpi | psm | words found | CER (whitespace ignored) |

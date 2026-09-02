@@ -134,7 +134,12 @@ Measured on the ground-truth Korean scan fixture (`tools/ocr_benchmark.py`):
 character error rate **1.6 %** (whitespace ignored), word boundaries within
 ±1 per line. Real scans with mixed graphics score lower; see `docs/testing.md`.
 PaddleOCR has an adapter but could not be evaluated here (its model hosts
-were unreachable), so it is unverified.
+were unreachable), so it is unverified. To score every engine on your own
+machine in one command:
+
+```bash
+.venv/bin/python tools/ocr_report.py --pdf your-scan.pdf --out ocr-report.md
+```
 
 ## The report
 
