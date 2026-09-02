@@ -221,17 +221,72 @@ an em) instead of by the ink gap brought the per-line space count from
 `[5,10,11,7,17,6,2,13,9,8]` to `[5,5,6,2,5,6,2,13,9,7]` against a truth of
 `[5,4,5,3,6,6,2,13,9,8]`.
 
-On the real six-page scanned proposal used during development (no ground
-truth), mean confidence per page was 88, 74, 86, 87, 87 and 85, with 2–23
-low-confidence lines and 33–110 discarded marks per page. Body text was
-readable; labels inside diagrams were the usual source of errors.
+On the real six-page scanned construction-plan proposal used during
+development (no ground truth), Tesseract at 400 dpi, psm 4, `kor+eng`, with
+the shipped noise policy:
 
-**PaddleOCR was not scored.** It installed (3.7.0) but needs its models
-fetched once from Baidu, HuggingFace or ModelScope, and all three were
-unreachable from this environment. The benchmark script scores it
-automatically wherever the models are cached.
+| page | lines | words | mean confidence | low-confidence lines | dropped marks |
+|---|---|---|---|---|---|
+| 1 | 57 | 446 | 88 | 7 | 33 |
+| 2 | 53 | 222 | 74 | 16 | 66 |
+| 3 | 75 | 499 | 86 | 2 | 77 |
+| 4 | 73 | 751 | 87 | 11 | 67 |
+| 5 | 51 | 534 | 87 | 5 | 67 |
+| 6 | 107 | 700 | 85 | 23 | 110 |
+
+Whole document: 416 lines, 3 152 words, 5 025 characters, mean confidence
+85.8, 46 s for six pages. These are the same per-page confidences the first
+run produced, re-measured from a fresh clone on 2026-09-02 with
+`tools/ocr_report.py`, so the pipeline is reproducible. Body text is readable
+(`한국도로공사가 보유한 성토부의 가용자산을 활용하여 신재생에너지 생산 및
+전기 보급` came back verbatim at 92); the errors are where they were before:
+labels inside diagrams, letter-spaced headings (`사 업번 신청느 목목적즈` for a
+spaced-out heading), and Latin inside Korean lines (`Transper` for
+`Transfer`). Page 2, the lowest, is the page that is mostly a diagram.
+
+### PaddleOCR status
+
+**PaddleOCR is still not scored, and the reason is now pinned down rather
+than assumed.** Re-attempted on 2026-09-02:
+
+- `pip install paddlepaddle paddleocr` succeeds (PaddlePaddle 3.3.1,
+  PaddleOCR 3.7.0; PyPI is reachable).
+- The engine wrapper then failed *before* touching the network:
+  `PaddleEngine` used the 2.x constructor arguments (`use_angle_cls`,
+  `show_log`) and the 2.x `.ocr(cls=True)` call, which PaddleOCR 3.x rejects
+  with `ValueError: Unknown argument: show_log`. `ocr.py` now uses the 3.x
+  API (`use_textline_orientation`, `.predict()`, `rec_polys` / `rec_texts` /
+  `rec_scores`) and falls back to the 2.x calls on an older install.
+- With that fixed, PaddleOCR reaches its model download and stops there.
+  Its own connectivity check reports every hoster unreachable — HuggingFace
+  (`huggingface.co`), ModelScope (`modelscope.cn`), AIStudio
+  (`aistudio.baidu.com`) and BOS (`paddle-model-ecology.bj.bcebos.com`) — and
+  a direct `curl` to each gives the same answer: the outbound proxy answers
+  `403` to the CONNECT for all four. `tools/ocr_report.py` records this as
+  `failed` in the engine table and carries on with Tesseract.
+- The one PyPI-only route to PP-OCR weights was also checked and does not
+  help: the `rapidocr` wheel bundles PP-OCRv6 detection and recognition
+  models, but its recognition dictionary contains no Hangul at all (37 415
+  characters, 0 in U+AC00–U+D7A3); the Korean recogniser it lists is fetched
+  from ModelScope, which is blocked.
+
+To get the PaddleOCR column filled in, run the same command on a machine that
+can reach one of those hosts, or copy an already-populated
+`~/.paddlex/official_models/` (the `korean_PP-OCRv5_mobile_rec`,
+`PP-OCRv5_mobile_det` and `PP-LCNet_x1_0_textline_ori` directories) into the
+runner's home first. No code change is needed for either.
 
 ## What has NOT been tested
+
+**A fresh clone cannot run the full suite.** `.gitignore` had an unanchored
+`build/` rule, which also matched `src/pdf2editable_ppt/build/` — the package
+that writes the deck (`pptx_writer`, `drawingml`, `ocr_deck`). That directory
+was never committed, so `import pdf2editable_ppt` fails on a checkout that did
+not originate on the development machine. The rule is now `/build/`; the
+package itself still has to be added from a working copy that has it (`git
+add src/pdf2editable_ppt/build`). Until then, only `test_ocr.py` has been
+re-run from a clone (11 passed; the 3 failures are the ones that build a
+deck), by stubbing the missing module at import time.
 
 **Microsoft PowerPoint has never opened a file this tool produced.** No Windows
 or macOS host was available in this environment. Every rendering check went
@@ -276,7 +331,8 @@ rasterisation behind two functions, so the adapter slots in beside
 
 ## Other gaps in coverage
 
-- PaddleOCR has never run here; only Tesseract's numbers are real.
+- PaddleOCR has never produced a result here; only Tesseract's numbers are
+  real. See *PaddleOCR status* above for exactly where it stops.
 - **SVG fallback is not implemented**, so nothing tests it.
 - RTL text, vertical CJK text, JBIG2/CCITT images, blend modes, transparency
   groups and annotation appearance streams have no fixtures.

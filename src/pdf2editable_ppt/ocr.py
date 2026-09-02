@@ -192,24 +192,45 @@ class PaddleEngine(OcrEngine):
             # Models are loaded from the local cache.  The first ever run of
             # PaddleOCR downloads them; that is a one-time install step, not a
             # per-document network call, and it is documented as such.
-            self._ocr = PaddleOCR(lang="korean", use_angle_cls=True, show_log=False)
+            #
+            # PaddleOCR 3.x renamed the constructor arguments and rejects the
+            # 2.x ones with a ValueError, so try the current names first and
+            # fall back to the old ones for an older install.
+            try:
+                self._ocr = PaddleOCR(lang="korean", use_textline_orientation=True)
+            except (ValueError, TypeError):
+                self._ocr = PaddleOCR(lang="korean", use_angle_cls=True, show_log=False)
         return self._ocr
 
     def recognise(self, image, languages):
         import numpy as np
 
         arr = np.asarray(image.convert("RGB"))
-        result = self._instance().ocr(arr, cls=True)
+        instance = self._instance()
         words = []
+        if hasattr(instance, "predict"):
+            # 3.x: one result object per image, dict-like, with parallel
+            # lists of polygons, texts and scores.
+            for res in instance.predict(arr) or []:
+                polys = res.get("rec_polys") or res.get("dt_polys") or []
+                texts = res.get("rec_texts") or []
+                scores = res.get("rec_scores") or []
+                for box, text, conf in zip(polys, texts, scores):
+                    words.append((text, _poly_bbox(box), float(conf) * 100))
+            return words
+        # 2.x: a list per page of [box, (text, confidence)].
+        result = instance.ocr(arr, cls=True)
         for page in result or []:
             for entry in page or []:
                 box, (text, conf) = entry[0], entry[1]
-                xs = [p[0] for p in box]
-                ys = [p[1] for p in box]
-                words.append(
-                    (text, (int(min(xs)), int(min(ys)), int(max(xs)), int(max(ys))), float(conf) * 100)
-                )
+                words.append((text, _poly_bbox(box), float(conf) * 100))
         return words
+
+
+def _poly_bbox(box) -> Tuple[int, int, int, int]:
+    xs = [float(p[0]) for p in box]
+    ys = [float(p[1]) for p in box]
+    return (int(min(xs)), int(min(ys)), int(max(xs)), int(max(ys)))
 
 
 def pick_engine(preference: str = "auto") -> Optional[OcrEngine]:
