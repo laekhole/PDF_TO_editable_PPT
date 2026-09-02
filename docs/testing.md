@@ -21,7 +21,7 @@ Korean fixtures need a Korean TrueType font (`fonts-nanum` or
 `fonts-noto-cjk`); without one the fixture generator falls back to the base-14
 fonts and the Korean assertions will fail rather than quietly test nothing.
 
-Last full run on this machine: **186 passed in 73 s** (Linux x86-64,
+Last full run on this machine: **186 passed in 76 s** (Linux x86-64,
 Python 3.11.15, LibreOffice 24.2, Impress + Nanum fonts installed).
 
 ## What each layer covers
@@ -103,7 +103,7 @@ profile). Every page passes.
 | mixed_sizes | yes | 0.0000 | 0.0000 | 0.97 | 2.1 |
 | rotated_pages | yes | 0.0000 | 0.0000 | 0.98 | 1.4 |
 | scanned | yes | 0.0000 | 0.0000 | 0.99 | 1.8 |
-| shapes | yes | 0.0007 | 0.0002 | 0.96 | 1.2 |
+| shapes | yes | 0.0011 | 0.0001 | 0.95 | 1.2 |
 | table_borderless | yes | 0.0000 | 0.0000 | 0.89 | 11.5 |
 | table_lattice | yes | 0.0009 | 0.0011 | 0.86 | 4.7 |
 | text_mixed | yes | 0.0827 | 0.0839 | 0.55 | 39.0 |
@@ -278,15 +278,15 @@ runner's home first. No code change is needed for either.
 
 ## What has NOT been tested
 
-**A fresh clone cannot run the full suite.** `.gitignore` had an unanchored
-`build/` rule, which also matched `src/pdf2editable_ppt/build/` — the package
-that writes the deck (`pptx_writer`, `drawingml`, `ocr_deck`). That directory
-was never committed, so `import pdf2editable_ppt` fails on a checkout that did
-not originate on the development machine. The rule is now `/build/`; the
-package itself still has to be added from a working copy that has it (`git
-add src/pdf2editable_ppt/build`). Until then, only `test_ocr.py` has been
-re-run from a clone (11 passed; the 3 failures are the ones that build a
-deck), by stubbing the missing module at import time.
+**The deck writer was rewritten on 2026-09-02.** `.gitignore` had an
+unanchored `build/` rule, which also matched `src/pdf2editable_ppt/build/`
+— the package that writes the deck — so that package was never committed and
+no copy of it survived. It was written again from what the rest of the code
+and the tests require of it (`converter.py`, `test_build.py`,
+`test_editability.py`, `test_ocr.py`, and the architecture notes), and the
+rule is now `/build/`. The corpus metrics below were re-measured with the
+rewritten writer; they match the earlier figures to the second decimal on
+every fixture but `shapes`, whose ink numbers moved by a few ten-thousandths.
 
 **Microsoft PowerPoint has never opened a file this tool produced.** No Windows
 or macOS host was available in this environment. Every rendering check went

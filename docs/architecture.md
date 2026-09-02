@@ -231,6 +231,7 @@ metrics and fallback regions are included. The schema is
 | `analyze/tables.py` | lattice tables and their per-cell style |
 | `build/drawingml.py` | DrawingML fragments |
 | `build/pptx_writer.py` | package assembly and element emission |
+| `build/ocr_deck.py` | the separate OCR draft deck |
 | `verify/render.py` | PDF and PPTX rasterisation |
 | `verify/compare.py` | the four metrics and their thresholds |
 | `pipeline.py` | raw records → IR, classification, shape budget |
